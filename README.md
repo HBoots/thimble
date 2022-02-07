@@ -25,8 +25,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin').default;
 
 Fix for deployment and automatic build...
 
-```json
+```bash
+$ npm install --save-exact mini-css-extract-plugin@2.4.5
+```
 
+```json
 "dependencies": {
     "mini-css-extract-plugin": "2.4.5",
   },
