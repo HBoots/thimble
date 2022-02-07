@@ -8,17 +8,13 @@ dev branch forked 7 Feb 2022
 
 ### 7 Feb 2022
 
-```bash
-$ git clone -b dev --single-branch git@github.com:HBoots/thimble.git
-```
-
 - Changed `README.md` file to record changes.
 - Installed express.js as a dependency and nodemon as a dev-dependency.
 - Added dev start script to `package.json`
 - Added `server.js` file to root directory.
 - Encountered bug during build. Solved with recommended solution from Stack Overflow (https://stackoverflow.com/questions/70715794/typeerror-minicssextractplugin-is-not-a-constructor/70716720)
 
-Fix = add exact version of dependency in `package.json`...
+Fix = add exact version of dependency in `package.json`.
 
 ```bash
 $ npm install --save-exact mini-css-extract-plugin@2.4.5
