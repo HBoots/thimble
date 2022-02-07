@@ -13,6 +13,7 @@ dev branch forked 7 Feb 2022
 - Encountered bug during build. Solved with recommended solution from Stack Overflow (https://stackoverflow.com/questions/70715794/typeerror-minicssextractplugin-is-not-a-constructor/70716720)
 
   - `/node_modules/react-scripts/config/webpack.config.js`
+    </br>
 
   ```javascript
   // add .default to end
