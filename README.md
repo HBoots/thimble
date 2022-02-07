@@ -26,20 +26,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin').default;
 Fix for deployment and automatic build...
 
 ```json
-// package.json
 
 "dependencies": {
-    ...
     "mini-css-extract-plugin": "2.4.5",
-    ...
   },
 ```
 
 - Added node version to `package.json`
 
 ```json
-// package.json
-
 "engines":{
   "node": "16.13.0"
 }
