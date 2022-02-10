@@ -4,17 +4,13 @@ import React, { useState } from 'react';
 import TargetLogo from '../../../../assets/images/target-logo.svg';
 import classNames from 'classnames';
 import styles from './style.module.css';
+import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
 
 // this file, and especially CSS file, assume 3x3=9 miniBoxes in each wholeKey
 
-const MiniBox: React.FC<{
-  letter: string;
-  keyCounter: number;
-  miniBoxId: number;
-  keyboardCounter: number;
-  gradientRecord: number[];
-  setGradientRecord: React.Dispatch<React.SetStateAction<number[]>>;
-}> = ({
+const MiniBox: React.FC<MiniBoxProps> = ({
+  bullseyeCounter,
+  setBullseyeCounter,
   letter,
   keyCounter,
   keyboardCounter,
@@ -22,8 +18,8 @@ const MiniBox: React.FC<{
   gradientRecord,
   setGradientRecord,
 }) => {
-  //   const numMinisToShow = 3; //save
-  //   const [miniCounter, setMiniCounter] = useState(0); //save
+  // const numMinisToShow = 3; //save
+  // const [miniCounter, setMiniCounter] = useState(0); //save
 
   const numTargetsToShow = 2;
   const [isClicked, setIsClicked] = useState(false);
@@ -31,7 +27,7 @@ const MiniBox: React.FC<{
 
   return (
     <div
-      id={styles.miniBox}
+      className={styles.miniBox}
       onClick={() => {
         setIsClicked(true);
         setKeyboardCounterSnapshot(keyboardCounter);
@@ -39,6 +35,7 @@ const MiniBox: React.FC<{
           gradientRecord[miniBoxId] = gradientRecord[miniBoxId] + 1;
           return gradientRecord;
         });
+        miniBoxId === 4 && setBullseyeCounter(bullseyeCounter + 1);
         // setMiniCounter(keyCounter); //save
       }}
       // SAVE BELOW:  This sets the colors for my follow-the-leader purple:
@@ -55,7 +52,7 @@ const MiniBox: React.FC<{
               {
                 [styles.targetTrace]:
                   keyboardCounter - 1 !== keyBoardCounterSnapshot,
-              } // [brackets] are necessary because this is an object key
+              }, // [brackets] are necessary because this is an object key
             )}
           />
         )}
@@ -63,10 +60,15 @@ const MiniBox: React.FC<{
   );
 };
 
-export const WholeKey: React.FC<{
-  letter: string;
-  keyboardCounter: number;
-}> = ({ letter, keyboardCounter }) => {
+export const WholeKey: React.FC<WholeKeyProps> = ({
+  bullseyeCounter,
+  setBullseyeCounter,
+  letter,
+  keyboardCounter,
+  typedSentence,
+  setTypedSentence,
+}) => {
+  const maxSentenceLength = 100;
   const miniBoxIds = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const [keyCounter, setKeyCounter] = useState(0);
   const [gradientRecord, setGradientRecord] = useState([
@@ -75,38 +77,25 @@ export const WholeKey: React.FC<{
 
   const mostPresses = Math.max(...gradientRecord);
   const mostPressedMiniBox = gradientRecord.indexOf(mostPresses);
+  const directions = [
+    'toLeftTop',
+    'toTop',
+    'toRightTop',
+    'toLeft',
+    'noGradient',
+    'toRight',
+    'toLeftBottom',
+    'toBottom',
+    'toRightBottom',
+  ];
 
-  let direction = '';
-  if (mostPresses !== 0) {
-    switch (mostPressedMiniBox) {
-      case 0:
-        direction = 'left top';
-        break;
-      case 1:
-        direction = 'top';
-        break;
-      case 2:
-        direction = 'right top';
-        break;
-      case 3:
-        direction = 'left';
-        break;
-      case 4:
-        direction = '';
-        break; //key has not yet been clicked, OR center mini gets clicked
-      case 5:
-        direction = 'right';
-        break;
-      case 6:
-        direction = 'left bottom';
-        break;
-      case 7:
-        direction = 'bottom';
-        break;
-      case 8:
-        direction = 'right bottom';
+  const buildSentence = () => {
+    let localSentence = typedSentence;
+    if (localSentence.length >= maxSentenceLength) {
+      localSentence = localSentence.substring(1);
     }
-  }
+    return localSentence + letter;
+  };
 
   return (
     <div
@@ -115,11 +104,14 @@ export const WholeKey: React.FC<{
       })}
       onClick={() => {
         setKeyCounter(keyCounter + 1);
+        setTypedSentence(buildSentence());
       }}
     >
       {miniBoxIds.map((miniBoxId) => (
         <MiniBox
           key={miniBoxId}
+          bullseyeCounter={bullseyeCounter}
+          setBullseyeCounter={setBullseyeCounter}
           miniBoxId={miniBoxId}
           letter={letter}
           keyCounter={keyCounter}
@@ -129,15 +121,13 @@ export const WholeKey: React.FC<{
         />
       ))}
       <div
-        id={styles.shownKey}
-        style={{
-          background:
-            direction === ''
-              ? '#E8E8E8'
-              : `linear-gradient(to ${direction}, #E8E8E8, 85%, #888)`,
-        }}
+        className={classNames(
+          styles.shownKey,
+          styles[directions[mostPressedMiniBox]],
+          { [styles.noGradient]: mostPresses === 0 },
+        )}
       >
-        <div id={styles.letter}>{letter}</div>
+        <div className={styles.letter}>{letter}</div>
       </div>
     </div>
   );
