@@ -38,3 +38,10 @@ $ npm install --save-exact mini-css-extract-plugin@2.4.5
 - Change title element to 'Thimble' in `index.html`
 - Commented out code to clear linter warnings in `src/routes/Keyboard/components/WholeKey/index.tsx`
 - Successfully deployed with Heroku https://powerful-crag-58139.herokuapp.com/
+
+## Current Issues
+
+- WebSockets not connecting in Firefox.
+- 304 error looking for `bundle.js.map`
+  - application bundles to `main.js.map`
+  - ?
