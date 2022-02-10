@@ -1,0 +1,10 @@
+.typingPageViewHeight {
+  height: 100vh;
+}
+
+.typingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: var(--appBarAdjustment);
+}

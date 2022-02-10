@@ -6,7 +6,7 @@ import styles from './style.module.css';
 export const HomeLinkSection: React.FC = () => {
   return (
     <nav>
-      <Link to="/" id={styles.linkSection}>
+      <Link to="/" className={styles.homeLinkSection}>
         {'<-- back to Home Page'}
       </Link>
     </nav>
