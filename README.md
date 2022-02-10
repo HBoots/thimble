@@ -45,3 +45,8 @@ $ npm install --save-exact mini-css-extract-plugin@2.4.5
 - 304 error looking for `bundle.js.map`
   - application bundles to `main.js.map`
   - ?
+
+### 10 Feb 2022
+
+- Moved application and the server into their own directories
+- Set up application with a proxy address to server
