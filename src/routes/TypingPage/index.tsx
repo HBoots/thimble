@@ -6,13 +6,13 @@ import { KeyboardAndConsoleLogicWrap } from './components/KeyboardAndConsoleLogi
 import styles from './style.module.css';
 
 export const TypingPage: React.FC = () => {
-  return (
-    <div className={styles.typingPageViewHeight}>
-      <div className={styles.typingPage}>
-        <HomeLinkSection />
-        <SampleSection />
-        <KeyboardAndConsoleLogicWrap />
+   return (
+      <div className={styles.typingPageViewHeight}>
+         <div className={styles.typingPage}>
+            <HomeLinkSection />
+            <SampleSection />
+            <KeyboardAndConsoleLogicWrap />
+         </div>
       </div>
-    </div>
-  );
+   );
 };
