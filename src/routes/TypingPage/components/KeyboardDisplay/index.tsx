@@ -10,6 +10,7 @@ export const KeyboardDisplay: React.FC<{
    setKeyboardCounter: React.Dispatch<React.SetStateAction<number>>;
    typedSentence: string;
    setTypedSentence: React.Dispatch<React.SetStateAction<string>>;
+   isEasy: boolean;
 }> = ({
    bullseyeCounter,
    setBullseyeCounter,
@@ -17,6 +18,7 @@ export const KeyboardDisplay: React.FC<{
    setKeyboardCounter,
    typedSentence,
    setTypedSentence,
+   isEasy,
 }) => {
    const lettersTop = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
    const lettersMiddle = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
@@ -39,6 +41,7 @@ export const KeyboardDisplay: React.FC<{
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
+                     isEasy={isEasy}
                   />
                ))}
             </div>
@@ -52,6 +55,7 @@ export const KeyboardDisplay: React.FC<{
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
+                     isEasy={isEasy}
                   />
                ))}
             </div>
@@ -65,6 +69,7 @@ export const KeyboardDisplay: React.FC<{
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
+                     isEasy={isEasy}
                   />
                ))}
             </div>
@@ -78,6 +83,7 @@ export const KeyboardDisplay: React.FC<{
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
+                     isEasy={isEasy}
                   />
                ))}
             </div>

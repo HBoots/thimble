@@ -1,25 +1,60 @@
-.miniBox {
+.miniBoxEasyCentral {
    position: relative;
-   width: 33%;
-   height: 33%;
    border-radius: 3px;
+   width: var(--easy-central);
+   height: var(--easy-central);
 }
 
-.targetLogo {
+.miniBoxEasyPeripheralWidth {
+   width: var(--easy-peripheral);
+}
+
+.miniBoxEasyPeripheralHeight {
+   height: var(--easy-peripheral);
+}
+
+.miniBoxHardCentral {
+   position: relative;
+   border-radius: 3px;
+   width: var(--hard-central);
+   height: var(--hard-central);
+}
+
+.miniBoxHardPeripheralWidth {
+   width: var(--hard-peripheral);
+}
+
+.miniBoxHardPeripheralHeight {
+   height: var(--hard-peripheral);
+}
+
+.target {
    position: absolute;
    pointer-events: none;
    top: calc(-0.5 * var(--key-width) + 50%);
-   left: calc(
-      -0.5 * var(--key-width) + 0.5 * var(--key-width) / var(--num-minis-in-row)
-   );
+   left: calc(-0.5 * var(--key-width) + 0.5 * var(--key-width) / 3);
    width: var(--key-width);
    z-index: 1;
 }
 
+.targetCentralWidth {
+   left: calc(-0.5 * var(--key-width) + 0.5 * var(--key-width) / 2);
+}
+
+.targetPeripheralWidth {
+   left: calc(-0.5 * var(--key-width) + 0.5 * var(--key-width) / 4);
+}
+
 .targetSpacebar {
-   left: calc(
-      -0.5 * var(--key-width) + 0.5 * var(--space-width) / var(--num-minis-in-row)
-   );
+   left: calc(-0.5 * var(--key-width) + 0.5 * var(--space-width) / 3);
+}
+
+.targetSpacebarCentralWidth {
+   left: calc(-0.5 * var(--key-width) + 0.5 * var(--space-width) / 2);
+}
+
+.targetSpacebarPeripheralWidth {
+   left: calc(-0.5 * var(--key-width) + 0.5 * var(--space-width) / 4);
 }
 
 .targetTrace {

@@ -7,6 +7,7 @@ export interface MiniBoxProps {
    keyboardCounter: number;
    gradientRecord: number[];
    setGradientRecord: React.Dispatch<React.SetStateAction<number[]>>;
+   isEasy: boolean;
 }
 
 export interface WholeKeyProps {
@@ -16,4 +17,5 @@ export interface WholeKeyProps {
    keyboardCounter: number;
    typedSentence: string;
    setTypedSentence: React.Dispatch<React.SetStateAction<string>>;
+   isEasy: boolean;
 }

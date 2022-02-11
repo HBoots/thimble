@@ -18,6 +18,7 @@ const MiniBox: React.FC<MiniBoxProps> = ({
    miniBoxId,
    gradientRecord,
    setGradientRecord,
+   isEasy,
 }) => {
    // const numMinisToShow = 3; //save
    // const [miniCounter, setMiniCounter] = useState(0); //save
@@ -28,7 +29,27 @@ const MiniBox: React.FC<MiniBoxProps> = ({
 
    return (
       <div
-         className={styles.miniBox}
+         className={classNames(
+            { [styles.miniBoxEasyCentral]: isEasy },
+            {
+               [styles.miniBoxEasyPeripheralWidth]:
+                  isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+            },
+            {
+               [styles.miniBoxEasyPeripheralHeight]:
+                  isEasy && [0, 1, 2, 6, 7, 8].includes(miniBoxId),
+            },
+
+            { [styles.miniBoxHardCentral]: !isEasy },
+            {
+               [styles.miniBoxHardPeripheralWidth]:
+                  !isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+            },
+            {
+               [styles.miniBoxHardPeripheralHeight]:
+                  !isEasy && [0, 1, 2, 6, 7, 8].includes(miniBoxId),
+            },
+         )}
          onClick={() => {
             setIsClicked(true);
             setKeyboardCounterSnapshot(keyboardCounter);
@@ -48,8 +69,33 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                   src={miniBoxId === 4 ? TargetLogoHit : TargetLogoMiss}
                   alt="target logo"
                   className={classNames(
-                     styles.targetLogo,
-                     { [styles.targetSpacebar]: letter === ' ' },
+                     styles.target,
+
+                     {
+                        [styles.targetCentralWidth]:
+                           isEasy && [1, 4, 7].includes(miniBoxId),
+                     },
+
+                     {
+                        [styles.targetPeripheralWidth]:
+                           isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+                     },
+
+                     { [styles.targetSpacebar]: !isEasy && letter === ' ' },
+
+                     {
+                        [styles.targetSpacebarCentralWidth]:
+                           isEasy &&
+                           letter === ' ' &&
+                           [1, 4, 7].includes(miniBoxId),
+                     },
+
+                     {
+                        [styles.targetSpacebarPeripheralWidth]:
+                           isEasy &&
+                           letter === ' ' &&
+                           [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+                     },
                      {
                         [styles.targetTrace]:
                            keyboardCounter - 1 !== keyBoardCounterSnapshot,
@@ -68,6 +114,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
    keyboardCounter,
    typedSentence,
    setTypedSentence,
+   isEasy,
 }) => {
    const maxSentenceLength = 100;
    const miniBoxIds = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -119,6 +166,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
                keyboardCounter={keyboardCounter}
                gradientRecord={gradientRecord}
                setGradientRecord={setGradientRecord}
+               isEasy={isEasy}
             />
          ))}
          <div
