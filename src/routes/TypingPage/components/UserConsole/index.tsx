@@ -59,7 +59,7 @@ const Panel: React.FC<{
             bullseyeCounter={bullseyeCounter}
             keyboardCounter={keyboardCounter}
          />
-         <div onClick={() => setIsEasy(!isEasy)}>
+         <div className={styles.score} onClick={() => setIsEasy(!isEasy)}>
             {isEasy ? 'easy' : 'hard'}
          </div>
          <ResetButton numResets={numResets} setNumResets={setNumResets} />

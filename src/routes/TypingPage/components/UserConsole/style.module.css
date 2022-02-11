@@ -43,6 +43,13 @@
    align-items: center;
 }
 
+.score {
+   background-color: #aaa;
+   border-radius: 5px;
+   padding: 0 6px;
+   font-weight: bold;
+}
+
 .reset {
    background: var(--nav-purple);
    padding: 0 7px;
