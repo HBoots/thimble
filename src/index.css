@@ -27,5 +27,8 @@ code {
    --key-width: 9.5vw;
    --space-width: 47vw;
 
-   --num-minis-in-row: 3;
+   --easy-central: 50%;
+   --easy-peripheral: 25%;
+   --hard-central: 33%;
+   --hard-peripheral: 33%;
 }

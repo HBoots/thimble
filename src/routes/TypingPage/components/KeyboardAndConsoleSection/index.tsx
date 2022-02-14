@@ -11,6 +11,7 @@ export const KeyboardAndConsoleSection: React.FC<{
    const [keyboardCounter, setKeyboardCounter] = useState(0);
    const [bullseyeCounter, setBullseyeCounter] = useState(0);
    const [typedSentence, setTypedSentence] = useState('');
+   const [isEasy, setIsEasy] = useState(true);
 
    return (
       <div className={styles.keyboardAndConsoleSection}>
@@ -20,6 +21,8 @@ export const KeyboardAndConsoleSection: React.FC<{
             numResets={numResets}
             setNumResets={setNumResets}
             typedSentence={typedSentence}
+            isEasy={isEasy}
+            setIsEasy={setIsEasy}
          />
          <KeyboardDisplay
             bullseyeCounter={bullseyeCounter}
@@ -28,6 +31,7 @@ export const KeyboardAndConsoleSection: React.FC<{
             setKeyboardCounter={setKeyboardCounter}
             typedSentence={typedSentence}
             setTypedSentence={setTypedSentence}
+            isEasy={isEasy}
          />
       </div>
    );

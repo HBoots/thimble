@@ -43,13 +43,25 @@ const Panel: React.FC<{
    keyboardCounter: number;
    numResets: number;
    setNumResets: React.Dispatch<React.SetStateAction<number>>;
-}> = ({ bullseyeCounter, keyboardCounter, numResets, setNumResets }) => {
+   isEasy: boolean;
+   setIsEasy: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({
+   bullseyeCounter,
+   keyboardCounter,
+   numResets,
+   setNumResets,
+   isEasy,
+   setIsEasy,
+}) => {
    return (
       <div className={styles.panel}>
          <Score
             bullseyeCounter={bullseyeCounter}
             keyboardCounter={keyboardCounter}
          />
+         <div className={styles.score} onClick={() => setIsEasy(!isEasy)}>
+            {isEasy ? 'easy' : 'hard'}
+         </div>
          <ResetButton numResets={numResets} setNumResets={setNumResets} />
       </div>
    );
@@ -61,12 +73,16 @@ export const UserConsole: React.FC<{
    numResets: number;
    setNumResets: React.Dispatch<React.SetStateAction<number>>;
    typedSentence: string;
+   isEasy: boolean;
+   setIsEasy: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({
    bullseyeCounter,
    keyboardCounter,
    numResets,
    setNumResets,
    typedSentence,
+   isEasy,
+   setIsEasy,
 }) => {
    return (
       <div className={styles.userConsole}>
@@ -76,6 +92,8 @@ export const UserConsole: React.FC<{
             keyboardCounter={keyboardCounter}
             numResets={numResets}
             setNumResets={setNumResets}
+            isEasy={isEasy}
+            setIsEasy={setIsEasy}
          />
       </div>
    );
