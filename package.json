@@ -21,7 +21,7 @@
    "bugs": {
       "url": "https://github.com/HBoots/thimble/issues"
    },
-   "homepage": "https://github.com/HBoots/thimble#readme",
+   "homepage": "https://powerful-crag-58139.herokuapp.com",
    "devDependencies": {
       "nodemon": "^2.0.15"
    },
