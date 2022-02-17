@@ -1,30 +1,34 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
 }
 
 /* colors */
 :root {
-  --home-purple:#CCC4F8;
-  --nav-purple: #7E74B2;
-  --home-welcome-text: #301D43;
-  --home-link-text: #301D43;
-  --shadow-grey: #E8E8E8;
-  --letter-color: #555;
+   --appBarAdjustment: 88%;
 
-  /* need space for 10 keys, so each is slightly less than 10% view-width */
-  --key-width: 9.5vw; 
-  --space-width: 47vw;
+   --home-purple: #ccc4f8;
+   --nav-purple: #7e74b2;
+   --home-welcome-text: #301d43;
+   --home-link-text: #301d43;
+   --shadow-gray: #e8e8e8;
+   --letter-color: #555;
 
-  --num-minis-in-row: 3;
+   /* need space for 10 keys, so each is slightly less than 10% view-width */
+   --key-width: 9.5vw;
+   --space-width: 47vw;
 
+   --easy-central: 50%;
+   --easy-peripheral: 25%;
+   --hard-central: 33%;
+   --hard-peripheral: 33%;
 }
