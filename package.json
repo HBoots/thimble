@@ -23,7 +23,8 @@
    },
    "homepage": "https://powerful-crag-58139.herokuapp.com",
    "devDependencies": {
-      "nodemon": "^2.0.15"
+      "nodemon": "^2.0.15",
+      "prettier": "^2.5.1"
    },
    "dependencies": {
       "express": "^4.17.2"
