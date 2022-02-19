@@ -20,7 +20,7 @@ const MiniBox: React.FC<MiniBoxProps> = ({
    setGradientRecord,
    isEasy,
 }) => {
-   // const numMinisToShow = 3; //save
+   // const numMinisToShow = 3; // save
    // const [miniCounter, setMiniCounter] = useState(0); //save
 
    const numTargetsToShow = 2;
