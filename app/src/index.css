@@ -14,8 +14,6 @@ code {
 
 /* colors */
 :root {
-   --appBarAdjustment: 88%;
-
    --home-purple: #ccc4f8;
    --nav-purple: #7e74b2;
    --home-welcome-text: #301d43;

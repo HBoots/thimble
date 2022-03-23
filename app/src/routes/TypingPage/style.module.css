@@ -1,10 +1,11 @@
 .typingPageViewHeight {
-   height: 100vh;
+   height: 100vh; /* Fallback for browsers that do not support Custom Properties, probably not relevant since this web app is ONLY useful on phones, which are going to use Safari or Chrome, not Firefox, Internet Explorer, ... */
+   height: calc(var(--jump-vh, 1vh) * 100);
 }
 
 .typingPage {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   height: var(--appBarAdjustment);
+   height: 100%;
 }
