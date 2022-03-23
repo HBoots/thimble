@@ -1,6 +1,5 @@
 .miniBoxEasyCentral {
    position: relative;
-   border-radius: 3px;
    width: var(--easy-central);
    height: var(--easy-central);
 }
@@ -15,7 +14,6 @@
 
 .miniBoxHardCentral {
    position: relative;
-   border-radius: 3px;
    width: var(--hard-central);
    height: var(--hard-central);
 }

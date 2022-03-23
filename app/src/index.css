@@ -26,7 +26,7 @@ code {
    --space-width: 47vw;
 
    --easy-central: 50%;
-   --easy-peripheral: 25%;
+   --easy-peripheral: calc((100% - var(--easy-central)) / 2);
    --hard-central: 33%;
-   --hard-peripheral: 33%;
+   --hard-peripheral: calc((100% - var(--hard-central)) / 2);
 }

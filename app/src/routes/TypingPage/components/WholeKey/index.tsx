@@ -29,6 +29,12 @@ const MiniBox: React.FC<MiniBoxProps> = ({
 
    return (
       <div
+         // for testing:
+         style={{
+            backgroundColor: `#${(miniBoxId * 3) % 10}${(miniBoxId * 5) % 10}${
+               (miniBoxId * 7) % 10
+            }`,
+         }}
          className={classNames(
             { [styles.miniBoxEasyCentral]: isEasy },
             {
