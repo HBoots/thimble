@@ -23,13 +23,18 @@ const MiniBox: React.FC<MiniBoxProps> = ({
    // const numMinisToShow = 3; // save
    // const [miniCounter, setMiniCounter] = useState(0); //save
 
+   const peripheralColumnsMinis = [0, 3, 6, 2, 5, 8];
+   const centralColumnMinis = [1, 4, 7];
+   const peripheralRowsMinis = [0, 1, 2, 6, 7, 8];
+   const centralRowMinis = [3, 4, 5];
+
    const numTargetsToShow = 2;
    const [isClicked, setIsClicked] = useState(false);
    const [keyBoardCounterSnapshot, setKeyboardCounterSnapshot] = useState(0);
 
    return (
       <div
-         // for testing:
+         // uncomment style={{... for height/width testing:
          style={{
             backgroundColor: `#${(miniBoxId * 3) % 10}${(miniBoxId * 5) % 10}${
                (miniBoxId * 7) % 10
@@ -39,21 +44,21 @@ const MiniBox: React.FC<MiniBoxProps> = ({
             { [styles.miniBoxEasyCentral]: isEasy },
             {
                [styles.miniBoxEasyPeripheralWidth]:
-                  isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+                  isEasy && peripheralColumnsMinis.includes(miniBoxId),
             },
             {
                [styles.miniBoxEasyPeripheralHeight]:
-                  isEasy && [0, 1, 2, 6, 7, 8].includes(miniBoxId),
+                  isEasy && peripheralRowsMinis.includes(miniBoxId),
             },
 
             { [styles.miniBoxHardCentral]: !isEasy },
             {
                [styles.miniBoxHardPeripheralWidth]:
-                  !isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+                  !isEasy && peripheralColumnsMinis.includes(miniBoxId),
             },
             {
                [styles.miniBoxHardPeripheralHeight]:
-                  !isEasy && [0, 1, 2, 6, 7, 8].includes(miniBoxId),
+                  !isEasy && peripheralRowsMinis.includes(miniBoxId),
             },
          )}
          onClick={() => {
@@ -79,12 +84,12 @@ const MiniBox: React.FC<MiniBoxProps> = ({
 
                      {
                         [styles.targetCentralWidth]:
-                           isEasy && [1, 4, 7].includes(miniBoxId),
+                           isEasy && centralColumnMinis.includes(miniBoxId),
                      },
 
                      {
                         [styles.targetPeripheralWidth]:
-                           isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+                           isEasy && peripheralColumnsMinis.includes(miniBoxId),
                      },
 
                      { [styles.targetSpacebar]: !isEasy && letter === ' ' },
@@ -93,14 +98,14 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                         [styles.targetSpacebarCentralWidth]:
                            isEasy &&
                            letter === ' ' &&
-                           [1, 4, 7].includes(miniBoxId),
+                           centralColumnMinis.includes(miniBoxId),
                      },
 
                      {
                         [styles.targetSpacebarPeripheralWidth]:
                            isEasy &&
                            letter === ' ' &&
-                           [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+                           peripheralColumnsMinis.includes(miniBoxId),
                      },
                      {
                         [styles.targetTrace]:
