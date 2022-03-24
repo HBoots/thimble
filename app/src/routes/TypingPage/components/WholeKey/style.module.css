@@ -1,3 +1,7 @@
+.miniBox {
+   position: relative;
+}
+
 .miniBoxEasyCentral {
    position: relative;
    width: var(--easy-central);
@@ -126,4 +130,14 @@
 
 .toRightBottom {
    background: linear-gradient(to right bottom, #e8e8e8, 82%, #888);
+}
+
+.temptarget {
+   pointer-events: none;
+   width: var(--key-width);
+   z-index: 1;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }

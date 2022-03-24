@@ -34,13 +34,11 @@ const MiniBox: React.FC<MiniBoxProps> = ({
 
    return (
       <div
-         // uncomment style={{... for height/width testing:
-         style={{
-            backgroundColor: `#${(miniBoxId * 3) % 10}${(miniBoxId * 5) % 10}${
-               (miniBoxId * 7) % 10
-            }`,
-         }}
+         // prettier-ignore
+         // uncomment style={{... for width testing. CAREFUL, prettier ignore should NOT apply to className block
+         // style={{backgroundColor: `#${((miniBoxId + 1) * 3) % 10}${((miniBoxId + 1) * 5) % 10}${((miniBoxId + 1) * 7) % 10}`,}}
          className={classNames(
+            styles.miniBox,
             { [styles.miniBoxEasyCentral]: isEasy },
             {
                [styles.miniBoxEasyPeripheralWidth]:
@@ -79,39 +77,42 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                <img
                   src={miniBoxId === 4 ? TargetLogoHit : TargetLogoMiss}
                   alt="target logo"
-                  className={classNames(
-                     styles.target,
+                  //temp:
+                  className={classNames(styles.temptarget, {
+                     // [brackets] are necessary because this is an object key
+                     [styles.targetTrace]:
+                        keyboardCounter - 1 !== keyBoardCounterSnapshot,
+                  })}
 
-                     {
-                        [styles.targetCentralWidth]:
-                           isEasy && centralColumnMinis.includes(miniBoxId),
-                     },
-
-                     {
-                        [styles.targetPeripheralWidth]:
-                           isEasy && peripheralColumnsMinis.includes(miniBoxId),
-                     },
-
-                     { [styles.targetSpacebar]: !isEasy && letter === ' ' },
-
-                     {
-                        [styles.targetSpacebarCentralWidth]:
-                           isEasy &&
-                           letter === ' ' &&
-                           centralColumnMinis.includes(miniBoxId),
-                     },
-
-                     {
-                        [styles.targetSpacebarPeripheralWidth]:
-                           isEasy &&
-                           letter === ' ' &&
-                           peripheralColumnsMinis.includes(miniBoxId),
-                     },
-                     {
-                        [styles.targetTrace]:
-                           keyboardCounter - 1 !== keyBoardCounterSnapshot,
-                     }, // [brackets] are necessary because this is an object key
-                  )}
+                  // className={classNames(
+                  //    styles.target,
+                  //    {
+                  //       [styles.targetTrace]:
+                  //          keyboardCounter - 1 !== keyBoardCounterSnapshot,
+                  //    },
+                  //    {
+                  //       [styles.targetCentralWidth]:
+                  //          isEasy && centralColumnMinis.includes(miniBoxId),
+                  //    },
+                  //    {
+                  //       [styles.targetPeripheralWidth]:
+                  //          isEasy && peripheralColumnsMinis.includes(miniBoxId),
+                  //    },
+                  //    { [styles.targetSpacebar]: !isEasy && letter === ' ' },
+                  //    {
+                  //       [styles.targetSpacebarCentralWidth]:
+                  //          isEasy &&
+                  //          letter === ' ' &&
+                  //          centralColumnMinis.includes(miniBoxId),
+                  //    },
+                  //    {
+                  //       [styles.targetSpacebarPeripheralWidth]:
+                  //          isEasy &&
+                  //          letter === ' ' &&
+                  //          peripheralColumnsMinis.includes(miniBoxId),
+                  //    },
+                  //    // [brackets] are necessary because this is an object key
+                  // )}
                />
             )}
       </div>
