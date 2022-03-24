@@ -7,8 +7,6 @@ import classNames from 'classnames';
 import styles from './style.module.css';
 import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
 
-// this file, and especially CSS file, assume 3x3=9 miniBoxes in each wholeKey
-
 const MiniBox: React.FC<MiniBoxProps> = ({
    bullseyeCounter,
    setBullseyeCounter,
@@ -24,9 +22,7 @@ const MiniBox: React.FC<MiniBoxProps> = ({
    // const [miniCounter, setMiniCounter] = useState(0); //save
 
    const peripheralColumnsMinis = [0, 3, 6, 2, 5, 8];
-   const centralColumnMinis = [1, 4, 7];
    const peripheralRowsMinis = [0, 1, 2, 6, 7, 8];
-   const centralRowMinis = [3, 4, 5];
 
    const numTargetsToShow = 2;
    const [isClicked, setIsClicked] = useState(false);
@@ -77,42 +73,11 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                <img
                   src={miniBoxId === 4 ? TargetLogoHit : TargetLogoMiss}
                   alt="target logo"
-                  //temp:
-                  className={classNames(styles.temptarget, {
+                  className={classNames(styles.target, {
                      // [brackets] are necessary because this is an object key
                      [styles.targetTrace]:
                         keyboardCounter - 1 !== keyBoardCounterSnapshot,
                   })}
-
-                  // className={classNames(
-                  //    styles.target,
-                  //    {
-                  //       [styles.targetTrace]:
-                  //          keyboardCounter - 1 !== keyBoardCounterSnapshot,
-                  //    },
-                  //    {
-                  //       [styles.targetCentralWidth]:
-                  //          isEasy && centralColumnMinis.includes(miniBoxId),
-                  //    },
-                  //    {
-                  //       [styles.targetPeripheralWidth]:
-                  //          isEasy && peripheralColumnsMinis.includes(miniBoxId),
-                  //    },
-                  //    { [styles.targetSpacebar]: !isEasy && letter === ' ' },
-                  //    {
-                  //       [styles.targetSpacebarCentralWidth]:
-                  //          isEasy &&
-                  //          letter === ' ' &&
-                  //          centralColumnMinis.includes(miniBoxId),
-                  //    },
-                  //    {
-                  //       [styles.targetSpacebarPeripheralWidth]:
-                  //          isEasy &&
-                  //          letter === ' ' &&
-                  //          peripheralColumnsMinis.includes(miniBoxId),
-                  //    },
-                  //    // [brackets] are necessary because this is an object key
-                  // )}
                />
             )}
       </div>

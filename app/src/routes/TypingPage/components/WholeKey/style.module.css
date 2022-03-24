@@ -31,32 +31,13 @@
 }
 
 .target {
-   position: absolute;
    pointer-events: none;
-   top: calc(-0.5 * var(--key-width) + 50%);
-   left: calc(-0.5 * var(--key-width) + 0.5 * var(--key-width) / 3);
    width: var(--key-width);
    z-index: 1;
-}
-
-.targetCentralWidth {
-   left: calc(-0.5 * var(--key-width) + 0.5 * var(--key-width) / 2);
-}
-
-.targetPeripheralWidth {
-   left: calc(-0.5 * var(--key-width) + 0.5 * var(--key-width) / 4);
-}
-
-.targetSpacebar {
-   left: calc(-0.5 * var(--key-width) + 0.5 * var(--space-width) / 3);
-}
-
-.targetSpacebarCentralWidth {
-   left: calc(-0.5 * var(--key-width) + 0.5 * var(--space-width) / 2);
-}
-
-.targetSpacebarPeripheralWidth {
-   left: calc(-0.5 * var(--key-width) + 0.5 * var(--space-width) / 4);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 
 .targetTrace {
@@ -130,14 +111,4 @@
 
 .toRightBottom {
    background: linear-gradient(to right bottom, #e8e8e8, 82%, #888);
-}
-
-.temptarget {
-   pointer-events: none;
-   width: var(--key-width);
-   z-index: 1;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
 }
