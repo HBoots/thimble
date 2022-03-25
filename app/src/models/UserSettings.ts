@@ -1,5 +1,4 @@
-export enum Medallion {
-   TARGET = 'target',
-   DOT = 'dot',
-   CROSSHAIRS = 'crosshairs',
+export interface Medallion {
+   name: string;
+   image: string;
 }

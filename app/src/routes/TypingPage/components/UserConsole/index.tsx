@@ -28,7 +28,7 @@ const ChooseMedallion: React.FC<{
             setMedallion(medallions[(medallions.indexOf(medallion) + 1) % 3])
          }
       >
-         {medallion}
+         <img src={medallion.image} alt="success medallion" width={20} />
       </div>
    );
 };

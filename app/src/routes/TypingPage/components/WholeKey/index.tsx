@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import TargetLogoHit from '../../../../assets/images/target-logo-hit.svg';
 import TargetLogoMiss from '../../../../assets/images/target-logo-miss.svg';
-import CrossHairs from '../../../../assets/images/crosshairs-hit.png';
+import CrosshairsHit from '../../../../assets/images/crosshairs-hit.png';
 import classNames from 'classnames';
 import styles from './style.module.css';
 import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
@@ -74,7 +74,7 @@ const MiniBox: React.FC<MiniBoxProps> = ({
             keyboardCounter - numMedallionsToShow <=
                keyBoardCounterSnapshot && (
                <img
-                  src={miniBoxId === 4 ? CrossHairs : TargetLogoMiss}
+                  src={miniBoxId === 4 ? CrosshairsHit : TargetLogoMiss}
                   alt="success medallion icon"
                   className={classNames(styles.medallion, {
                      // [brackets] are necessary because this is an object key
