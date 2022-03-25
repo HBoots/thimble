@@ -1,4 +1,10 @@
 export interface Medallion {
    name: string;
-   image: string;
+   images: MedallionImages;
+}
+
+interface MedallionImages {
+   hit: string;
+   miss: string;
+   panel: string;
 }

@@ -74,7 +74,11 @@ const MiniBox: React.FC<MiniBoxProps> = ({
             keyboardCounter - numMedallionsToShow <=
                keyBoardCounterSnapshot && (
                <img
-                  src={miniBoxId === 4 ? CrosshairsHit : TargetLogoMiss}
+                  src={
+                     miniBoxId === 4
+                        ? medallion.images.hit
+                        : medallion.images.miss
+                  }
                   alt="success medallion icon"
                   className={classNames(styles.medallion, {
                      // [brackets] are necessary because this is an object key
