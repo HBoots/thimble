@@ -122,7 +122,6 @@ export const UserConsole: React.FC<{
 }) => {
    return (
       <div className={styles.userConsole}>
-         <UserSentence typedSentence={typedSentence} />
          <Panel
             bullseyeCounter={bullseyeCounter}
             keyboardCounter={keyboardCounter}
@@ -133,6 +132,7 @@ export const UserConsole: React.FC<{
             medallion={medallion}
             setMedallion={setMedallion}
          />
+         <UserSentence typedSentence={typedSentence} />
       </div>
    );
 };
