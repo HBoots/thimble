@@ -2,12 +2,13 @@ import { Medallion } from '../models/UserSettings';
 
 import TargetLogoHit from '../assets/images/target-logo-hit.svg';
 import TargetLogoMiss from '../assets/images/target-logo-miss.svg';
+import TargetLogoPanel from '../assets/images/target-logo-hit.svg';
 import CrosshairsHit from '../assets/images/crosshairs-hit.png';
 import CrosshairsMiss from '../assets/images/crosshairs-miss.png';
 import CrosshairsPanel from '../assets/images/crosshairs-panel.png';
-
-import DotHit from '../assets/images/letter_D.png';
-import DotMiss from '../assets/images/letter_D.png';
+import DotHit from '../assets/images/dot-hit.svg';
+import DotMiss from '../assets/images/dot-miss.svg';
+import DotPanel from '../assets/images/dot-hit.svg';
 
 export enum MedallionEnum {
    TARGET = 'target',
@@ -21,7 +22,7 @@ export const medallions: Medallion[] = [
       images: {
          hit: TargetLogoHit,
          miss: TargetLogoMiss,
-         panel: TargetLogoHit,
+         panel: TargetLogoPanel,
       },
    },
    {
@@ -37,7 +38,7 @@ export const medallions: Medallion[] = [
       images: {
          hit: DotHit,
          miss: DotMiss,
-         panel: DotHit,
+         panel: DotPanel,
       },
    },
 ];

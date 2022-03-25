@@ -44,6 +44,10 @@
    width: calc(var(--key-width) * 5);
 }
 
+.medallionDot {
+   width: calc(var(--key-width) * 1.9);
+}
+
 .medallionTrace {
    opacity: 0.3;
 }

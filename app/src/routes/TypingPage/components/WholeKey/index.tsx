@@ -86,6 +86,10 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                            medallion.name === MedallionEnum.CROSSHAIRS,
                      },
                      {
+                        [styles.medallionDot]:
+                           medallion.name === MedallionEnum.DOT,
+                     },
+                     {
                         [styles.medallionTrace]:
                            keyboardCounter - 1 !== keyBoardCounterSnapshot,
                      },
