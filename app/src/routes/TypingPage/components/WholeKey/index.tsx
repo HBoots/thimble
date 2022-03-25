@@ -7,8 +7,6 @@ import classNames from 'classnames';
 import styles from './style.module.css';
 import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
 
-// this file, and especially CSS file, assume 3x3=9 miniBoxes in each wholeKey
-
 const MiniBox: React.FC<MiniBoxProps> = ({
    bullseyeCounter,
    setBullseyeCounter,
@@ -23,31 +21,38 @@ const MiniBox: React.FC<MiniBoxProps> = ({
    // const numMinisToShow = 3; // save
    // const [miniCounter, setMiniCounter] = useState(0); //save
 
+   const peripheralColumnsMinis = [0, 3, 6, 2, 5, 8];
+   const peripheralRowsMinis = [0, 1, 2, 6, 7, 8];
+
    const numTargetsToShow = 2;
    const [isClicked, setIsClicked] = useState(false);
    const [keyBoardCounterSnapshot, setKeyboardCounterSnapshot] = useState(0);
 
    return (
       <div
+         // prettier-ignore
+         // uncomment style={{... for width testing. CAREFUL, prettier ignore should NOT apply to className block
+         // style={{backgroundColor: `#${((miniBoxId + 1) * 3) % 10}${((miniBoxId + 1) * 5) % 10}${((miniBoxId + 1) * 7) % 10}`,}}
          className={classNames(
+            styles.miniBox,
             { [styles.miniBoxEasyCentral]: isEasy },
             {
                [styles.miniBoxEasyPeripheralWidth]:
-                  isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+                  isEasy && peripheralColumnsMinis.includes(miniBoxId),
             },
             {
                [styles.miniBoxEasyPeripheralHeight]:
-                  isEasy && [0, 1, 2, 6, 7, 8].includes(miniBoxId),
+                  isEasy && peripheralRowsMinis.includes(miniBoxId),
             },
 
             { [styles.miniBoxHardCentral]: !isEasy },
             {
                [styles.miniBoxHardPeripheralWidth]:
-                  !isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
+                  !isEasy && peripheralColumnsMinis.includes(miniBoxId),
             },
             {
                [styles.miniBoxHardPeripheralHeight]:
-                  !isEasy && [0, 1, 2, 6, 7, 8].includes(miniBoxId),
+                  !isEasy && peripheralRowsMinis.includes(miniBoxId),
             },
          )}
          onClick={() => {
@@ -68,39 +73,11 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                <img
                   src={miniBoxId === 4 ? TargetLogoHit : TargetLogoMiss}
                   alt="target logo"
-                  className={classNames(
-                     styles.target,
-
-                     {
-                        [styles.targetCentralWidth]:
-                           isEasy && [1, 4, 7].includes(miniBoxId),
-                     },
-
-                     {
-                        [styles.targetPeripheralWidth]:
-                           isEasy && [0, 3, 6, 2, 5, 8].includes(miniBoxId),
-                     },
-
-                     { [styles.targetSpacebar]: !isEasy && letter === ' ' },
-
-                     {
-                        [styles.targetSpacebarCentralWidth]:
-                           isEasy &&
-                           letter === ' ' &&
-                           [1, 4, 7].includes(miniBoxId),
-                     },
-
-                     {
-                        [styles.targetSpacebarPeripheralWidth]:
-                           isEasy &&
-                           letter === ' ' &&
-                           [0, 3, 6, 2, 5, 8].includes(miniBoxId),
-                     },
-                     {
-                        [styles.targetTrace]:
-                           keyboardCounter - 1 !== keyBoardCounterSnapshot,
-                     }, // [brackets] are necessary because this is an object key
-                  )}
+                  className={classNames(styles.target, {
+                     // [brackets] are necessary because this is an object key
+                     [styles.targetTrace]:
+                        keyboardCounter - 1 !== keyBoardCounterSnapshot,
+                  })}
                />
             )}
       </div>
