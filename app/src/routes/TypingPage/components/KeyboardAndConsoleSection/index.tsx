@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { medallions } from '../../../../constants/userChoices';
+import { Medallion } from '../../../../models/UserSettings';
 import { KeyboardDisplay } from '../KeyboardDisplay';
 import { UserConsole } from '../UserConsole';
 
@@ -12,6 +14,7 @@ export const KeyboardAndConsoleSection: React.FC<{
    const [bullseyeCounter, setBullseyeCounter] = useState(0);
    const [typedSentence, setTypedSentence] = useState('');
    const [isEasy, setIsEasy] = useState(true);
+   const [medallion, setMedallion] = useState<Medallion>(medallions[0]);
 
    return (
       <div className={styles.keyboardAndConsoleSection}>
@@ -23,6 +26,8 @@ export const KeyboardAndConsoleSection: React.FC<{
             typedSentence={typedSentence}
             isEasy={isEasy}
             setIsEasy={setIsEasy}
+            medallion={medallion}
+            setMedallion={setMedallion}
          />
          <KeyboardDisplay
             bullseyeCounter={bullseyeCounter}
@@ -32,6 +37,7 @@ export const KeyboardAndConsoleSection: React.FC<{
             typedSentence={typedSentence}
             setTypedSentence={setTypedSentence}
             isEasy={isEasy}
+            medallion={medallion}
          />
       </div>
    );

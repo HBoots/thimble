@@ -1,3 +1,5 @@
+import { Medallion } from './UserSettings';
+
 export interface MiniBoxProps {
    bullseyeCounter: number;
    setBullseyeCounter: React.Dispatch<React.SetStateAction<number>>;
@@ -8,6 +10,7 @@ export interface MiniBoxProps {
    gradientRecord: number[];
    setGradientRecord: React.Dispatch<React.SetStateAction<number[]>>;
    isEasy: boolean;
+   medallion: Medallion;
 }
 
 export interface WholeKeyProps {
@@ -18,4 +21,5 @@ export interface WholeKeyProps {
    typedSentence: string;
    setTypedSentence: React.Dispatch<React.SetStateAction<string>>;
    isEasy: boolean;
+   medallion: Medallion;
 }

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import TargetLogoHit from '../../../../assets/images/target-logo-hit.svg';
 import TargetLogoMiss from '../../../../assets/images/target-logo-miss.svg';
-import CrossHairs from '../../../../assets/images/crosshairs-black.png';
+import CrossHairs from '../../../../assets/images/crosshairs-hit.png';
 import classNames from 'classnames';
 import styles from './style.module.css';
 import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
@@ -18,6 +18,7 @@ const MiniBox: React.FC<MiniBoxProps> = ({
    gradientRecord,
    setGradientRecord,
    isEasy,
+   medallion,
 }) => {
    // const numMinisToShow = 3; // save
    // const [miniCounter, setMiniCounter] = useState(0); //save
@@ -94,6 +95,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
    typedSentence,
    setTypedSentence,
    isEasy,
+   medallion,
 }) => {
    const maxSentenceLength = 100;
    const miniBoxIds = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -146,6 +148,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
                gradientRecord={gradientRecord}
                setGradientRecord={setGradientRecord}
                isEasy={isEasy}
+               medallion={medallion}
             />
          ))}
          <div

@@ -1,4 +1,6 @@
 import React from 'react';
+import { medallions } from '../../../../constants/userChoices';
+import { Medallion } from '../../../../models/UserSettings';
 
 import styles from './style.module.css';
 
@@ -11,6 +13,33 @@ const Score: React.FC<{ bullseyeCounter: number; keyboardCounter: number }> = ({
          <span>score </span>
          <span className={styles.success}>{bullseyeCounter}</span>
          <span>{`/${keyboardCounter}`}</span>
+      </div>
+   );
+};
+
+const ChooseMedallion: React.FC<{
+   medallion: Medallion;
+   setMedallion: React.Dispatch<React.SetStateAction<Medallion>>;
+}> = ({ medallion, setMedallion }) => {
+   return (
+      <div
+         className={styles.score}
+         onClick={() =>
+            setMedallion(medallions[(medallions.indexOf(medallion) + 1) % 3])
+         }
+      >
+         {medallion}
+      </div>
+   );
+};
+
+const ChooseEasy: React.FC<{
+   isEasy: boolean;
+   setIsEasy: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ isEasy, setIsEasy }) => {
+   return (
+      <div className={styles.score} onClick={() => setIsEasy(!isEasy)}>
+         {isEasy ? 'easy' : 'hard'}
       </div>
    );
 };
@@ -45,6 +74,8 @@ const Panel: React.FC<{
    setNumResets: React.Dispatch<React.SetStateAction<number>>;
    isEasy: boolean;
    setIsEasy: React.Dispatch<React.SetStateAction<boolean>>;
+   medallion: Medallion;
+   setMedallion: React.Dispatch<React.SetStateAction<Medallion>>;
 }> = ({
    bullseyeCounter,
    keyboardCounter,
@@ -52,6 +83,8 @@ const Panel: React.FC<{
    setNumResets,
    isEasy,
    setIsEasy,
+   medallion,
+   setMedallion,
 }) => {
    return (
       <div className={styles.panel}>
@@ -59,9 +92,8 @@ const Panel: React.FC<{
             bullseyeCounter={bullseyeCounter}
             keyboardCounter={keyboardCounter}
          />
-         <div className={styles.score} onClick={() => setIsEasy(!isEasy)}>
-            {isEasy ? 'easy' : 'hard'}
-         </div>
+         <ChooseEasy isEasy={isEasy} setIsEasy={setIsEasy} />
+         <ChooseMedallion medallion={medallion} setMedallion={setMedallion} />
          <ResetButton numResets={numResets} setNumResets={setNumResets} />
       </div>
    );
@@ -75,6 +107,8 @@ export const UserConsole: React.FC<{
    typedSentence: string;
    isEasy: boolean;
    setIsEasy: React.Dispatch<React.SetStateAction<boolean>>;
+   medallion: Medallion;
+   setMedallion: React.Dispatch<React.SetStateAction<Medallion>>;
 }> = ({
    bullseyeCounter,
    keyboardCounter,
@@ -83,6 +117,8 @@ export const UserConsole: React.FC<{
    typedSentence,
    isEasy,
    setIsEasy,
+   medallion,
+   setMedallion,
 }) => {
    return (
       <div className={styles.userConsole}>
@@ -94,6 +130,8 @@ export const UserConsole: React.FC<{
             setNumResets={setNumResets}
             isEasy={isEasy}
             setIsEasy={setIsEasy}
+            medallion={medallion}
+            setMedallion={setMedallion}
          />
       </div>
    );
