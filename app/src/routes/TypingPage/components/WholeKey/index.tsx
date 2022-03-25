@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 // import { colors } from '../../../../helpers/jsColors'; //save
 
-import TargetLogoHit from '../../../../assets/images/target-logo-hit.svg';
-import TargetLogoMiss from '../../../../assets/images/target-logo-miss.svg';
-import CrosshairsHit from '../../../../assets/images/crosshairs-hit.png';
 import classNames from 'classnames';
 import styles from './style.module.css';
 import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
+import { MedallionEnum } from '../../../../constants/userChoices';
 
 const MiniBox: React.FC<MiniBoxProps> = ({
    bullseyeCounter,
@@ -80,11 +78,18 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                         : medallion.images.miss
                   }
                   alt="success medallion icon"
-                  className={classNames(styles.medallion, {
+                  className={classNames(
+                     styles.medallion,
                      // [brackets] are necessary because this is an object key
-                     [styles.medallionTrace]:
-                        keyboardCounter - 1 !== keyBoardCounterSnapshot,
-                  })}
+                     {
+                        [styles.medallionCrosshairs]:
+                           medallion.name === MedallionEnum.CROSSHAIRS,
+                     },
+                     {
+                        [styles.medallionTrace]:
+                           keyboardCounter - 1 !== keyBoardCounterSnapshot,
+                     },
+                  )}
                />
             )}
       </div>

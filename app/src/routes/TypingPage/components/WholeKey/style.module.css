@@ -32,12 +32,16 @@
 
 .medallion {
    pointer-events: none;
-   width: calc(var(--key-width) * 5);
+   width: var(--key-width);
    z-index: 1;
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+}
+
+.medallionCrosshairs {
+   width: calc(var(--key-width) * 5);
 }
 
 .medallionTrace {

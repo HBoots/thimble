@@ -7,9 +7,15 @@ import CrosshairsMiss from '../assets/images/crosshairs-miss.png';
 import DotHit from '../assets/images/letter_D.png';
 import DotMiss from '../assets/images/letter_D.png';
 
+export enum MedallionEnum {
+   TARGET = 'target',
+   CROSSHAIRS = 'crosshairs',
+   DOT = 'dot',
+}
+
 export const medallions: Medallion[] = [
    {
-      name: 'target',
+      name: MedallionEnum.TARGET,
       images: {
          hit: TargetLogoHit,
          miss: TargetLogoMiss,
@@ -17,7 +23,7 @@ export const medallions: Medallion[] = [
       },
    },
    {
-      name: 'crosshairs',
+      name: MedallionEnum.CROSSHAIRS,
       images: {
          hit: CrosshairsHit,
          miss: CrosshairsMiss,
@@ -25,7 +31,7 @@ export const medallions: Medallion[] = [
       },
    },
    {
-      name: 'dot',
+      name: MedallionEnum.DOT,
       images: {
          hit: DotHit,
          miss: DotMiss,
