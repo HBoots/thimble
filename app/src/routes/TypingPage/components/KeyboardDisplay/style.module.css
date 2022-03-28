@@ -1,6 +1,6 @@
 .keyboardDisplay {
    box-sizing: border-box;
-   height: 78%;
+   height: 68%;
    display: flex;
    flex-direction: column;
    align-items: center;
