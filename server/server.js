@@ -8,7 +8,7 @@ const buildPath = path.join(__dirname, '..', 'app', 'build');
 
 app.use(express.static(buildPath));
 
-// * = our url  (powerful-crag...).  Send end-user the index.html file in app/build
+// * = our url  (powerful-crag...) or ANY url OR error. Send end-user the index.html file in app/build
 app.get('*', (req, res) => {
    res.sendFile(path.join(buildPath, 'index.html'));
 });

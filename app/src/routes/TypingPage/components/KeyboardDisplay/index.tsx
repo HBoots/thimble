@@ -1,4 +1,5 @@
 import React from 'react';
+import { Medallion } from '../../../../models/UserSettings';
 import { WholeKey } from '../WholeKey';
 
 import styles from './style.module.css';
@@ -11,6 +12,7 @@ export const KeyboardDisplay: React.FC<{
    typedSentence: string;
    setTypedSentence: React.Dispatch<React.SetStateAction<string>>;
    isEasy: boolean;
+   medallion: Medallion;
 }> = ({
    bullseyeCounter,
    setBullseyeCounter,
@@ -19,6 +21,7 @@ export const KeyboardDisplay: React.FC<{
    typedSentence,
    setTypedSentence,
    isEasy,
+   medallion,
 }) => {
    const lettersTop = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
    const lettersMiddle = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
@@ -42,6 +45,7 @@ export const KeyboardDisplay: React.FC<{
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
+                     medallion={medallion}
                   />
                ))}
             </div>
@@ -56,6 +60,7 @@ export const KeyboardDisplay: React.FC<{
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
+                     medallion={medallion}
                   />
                ))}
             </div>
@@ -70,6 +75,7 @@ export const KeyboardDisplay: React.FC<{
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
+                     medallion={medallion}
                   />
                ))}
             </div>
@@ -84,6 +90,7 @@ export const KeyboardDisplay: React.FC<{
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
+                     medallion={medallion}
                   />
                ))}
             </div>

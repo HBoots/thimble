@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 // import { colors } from '../../../../helpers/jsColors'; //save
 
-import TargetLogoHit from '../../../../assets/images/target-logo-hit.svg';
-import TargetLogoMiss from '../../../../assets/images/target-logo-miss.svg';
 import classNames from 'classnames';
 import styles from './style.module.css';
 import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
+import { MedallionEnum } from '../../../../constants/userChoices';
 
 const MiniBox: React.FC<MiniBoxProps> = ({
    bullseyeCounter,
@@ -17,6 +16,7 @@ const MiniBox: React.FC<MiniBoxProps> = ({
    gradientRecord,
    setGradientRecord,
    isEasy,
+   medallion,
 }) => {
    // const numMinisToShow = 3; // save
    // const [miniCounter, setMiniCounter] = useState(0); //save
@@ -24,7 +24,7 @@ const MiniBox: React.FC<MiniBoxProps> = ({
    const peripheralColumnsMinis = [0, 3, 6, 2, 5, 8];
    const peripheralRowsMinis = [0, 1, 2, 6, 7, 8];
 
-   const numTargetsToShow = 2;
+   const numMedallionsToShow = 2;
    const [isClicked, setIsClicked] = useState(false);
    const [keyBoardCounterSnapshot, setKeyboardCounterSnapshot] = useState(0);
 
@@ -69,15 +69,31 @@ const MiniBox: React.FC<MiniBoxProps> = ({
          // style={{backgroundColor: isClicked && keyCounter === miniCounter + 1? colors.purpleFeedback : isClicked && keyCounter - (miniCounter + 1) < numMinisToShow? colors.purpleFaded:'inherit'}}
       >
          {isClicked &&
-            keyboardCounter - numTargetsToShow <= keyBoardCounterSnapshot && (
+            keyboardCounter - numMedallionsToShow <=
+               keyBoardCounterSnapshot && (
                <img
-                  src={miniBoxId === 4 ? TargetLogoHit : TargetLogoMiss}
-                  alt="target logo"
-                  className={classNames(styles.target, {
+                  src={
+                     miniBoxId === 4
+                        ? medallion.images.hit
+                        : medallion.images.miss
+                  }
+                  alt="success medallion icon"
+                  className={classNames(
+                     styles.medallion,
                      // [brackets] are necessary because this is an object key
-                     [styles.targetTrace]:
-                        keyboardCounter - 1 !== keyBoardCounterSnapshot,
-                  })}
+                     {
+                        [styles.medallionCrosshairs]:
+                           medallion.name === MedallionEnum.CROSSHAIRS,
+                     },
+                     {
+                        [styles.medallionDot]:
+                           medallion.name === MedallionEnum.DOT,
+                     },
+                     {
+                        [styles.medallionTrace]:
+                           keyboardCounter - 1 !== keyBoardCounterSnapshot,
+                     },
+                  )}
                />
             )}
       </div>
@@ -92,6 +108,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
    typedSentence,
    setTypedSentence,
    isEasy,
+   medallion,
 }) => {
    const maxSentenceLength = 100;
    const miniBoxIds = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -144,6 +161,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
                gradientRecord={gradientRecord}
                setGradientRecord={setGradientRecord}
                isEasy={isEasy}
+               medallion={medallion}
             />
          ))}
          <div
