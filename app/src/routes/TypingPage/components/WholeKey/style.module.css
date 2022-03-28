@@ -32,20 +32,13 @@
 
 .medallion {
    pointer-events: none;
-   width: var(--key-width);
+   /* target medallion has an added border on all 4 sides, such that the visible image is 1/9 of the total image */
+   width: calc(var(--key-width) * 9);
    z-index: 1;
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-}
-
-.medallionCrosshairs {
-   width: calc(var(--key-width) * 5);
-}
-
-.medallionDot {
-   width: calc(var(--key-width) * 1.9);
 }
 
 .medallionTrace {

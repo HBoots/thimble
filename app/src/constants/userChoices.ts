@@ -1,14 +1,14 @@
 import { Medallion } from '../models/UserSettings';
 
-import TargetLogoHit from '../assets/images/target-logo-hit.svg';
-import TargetLogoMiss from '../assets/images/target-logo-miss.svg';
-import TargetLogoPanel from '../assets/images/target-logo-hit.svg';
+import TargetLogoHit from '../assets/images/target-hit-x9-2000.png';
+import TargetLogoMiss from '../assets/images/target-miss-x9-2000.png';
+import TargetLogoPanel from '../assets/images/target-hit-x1.png';
 import CrosshairsHit from '../assets/images/crosshairs-hit.png';
 import CrosshairsMiss from '../assets/images/crosshairs-miss.png';
 import CrosshairsPanel from '../assets/images/crosshairs-panel.png';
-import DotHit from '../assets/images/dot-hit.svg';
-import DotMiss from '../assets/images/dot-miss.svg';
-import DotPanel from '../assets/images/dot-hit.svg';
+import DotHit from '../assets/images/dot-hit-x6-2000.png';
+import DotMiss from '../assets/images/dot-miss-x6-2000.png';
+import DotPanel from '../assets/images/dot-hit-x1.png';
 
 export enum MedallionEnum {
    TARGET = 'target',
