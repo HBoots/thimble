@@ -33,22 +33,18 @@ const MiniBox: React.FC<MiniBoxProps> = ({
          // style={{backgroundColor: `#${((miniBoxId + 1) * 3) % 10}${((miniBoxId + 1) * 5) % 10}${((miniBoxId + 1) * 7) % 10}`,}}
          className={classNames(
             styles.miniBox,
-            { [styles.miniBoxEasyCentral]: isEasy },
+            // [brackets] are necessary because this is an object key:
             {
+               [styles.miniBoxEasyCentral]: isEasy,
                [styles.miniBoxEasyPeripheralWidth]:
                   isEasy && peripheralColumnsMinis.includes(miniBoxId),
-            },
-            {
                [styles.miniBoxEasyPeripheralHeight]:
                   isEasy && peripheralRowsMinis.includes(miniBoxId),
             },
-
-            { [styles.miniBoxHardCentral]: !isEasy },
             {
+               [styles.miniBoxHardCentral]: !isEasy,
                [styles.miniBoxHardPeripheralWidth]:
                   !isEasy && peripheralColumnsMinis.includes(miniBoxId),
-            },
-            {
                [styles.miniBoxHardPeripheralHeight]:
                   !isEasy && peripheralRowsMinis.includes(miniBoxId),
             },
@@ -76,15 +72,10 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                         : medallion.images.miss
                   }
                   alt="success medallion icon"
-                  className={classNames(
-                     styles.medallion,
-                     // [brackets] are necessary because this is an object key
-
-                     {
-                        [styles.medallionTrace]:
-                           keyboardCounter - 1 !== keyBoardCounterSnapshot,
-                     },
-                  )}
+                  className={classNames(styles.medallion, {
+                     [styles.medallionTrace]:
+                        keyboardCounter - 1 !== keyBoardCounterSnapshot,
+                  })}
                />
             )}
       </div>
@@ -173,15 +164,16 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
          <div
             className={classNames(
                styles.shownKey,
-               { [styles.shownKeyBackspace]: letter === '<<' },
-               { [styles.shownKeyUppercase]: letter === '^' },
-               { [styles.highlight]: letter === '^' && isUpperCase },
+               {
+                  [styles.shownKeyBackspace]: letter === '<<',
+                  [styles.shownKeyUppercase]: letter === '^',
+                  [styles.highlight]: letter === '^' && isUpperCase,
+               },
                {
                   [styles[directions[mostPressedMiniBox]]]:
                      letter !== '<<' && letter !== '^',
-               },
-               {
-                  [styles.noGradient]: letter !== '^' && mostPresses === 0,
+                  [styles.noGradient]:
+                     letter !== '<<' && letter !== '^' && mostPresses === 0,
                },
             )}
          >
