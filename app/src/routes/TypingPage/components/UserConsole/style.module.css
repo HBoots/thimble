@@ -1,5 +1,5 @@
 .userConsole {
-   height: 32%;
+   height: 33%;
    display: flex;
    flex-direction: column;
    box-sizing: border-box;
@@ -8,7 +8,7 @@
 }
 
 .panel {
-   height: 70%;
+   height: 65%;
    display: flex;
    flex-direction: row;
    box-sizing: border-box;
@@ -36,7 +36,7 @@
 }
 
 .userSentence {
-   height: 30%;
+   height: 35%;
    display: flex;
    flex-direction: row;
    justify-content: center;

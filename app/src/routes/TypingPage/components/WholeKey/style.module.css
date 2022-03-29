@@ -53,29 +53,58 @@
    width: var(--key-width);
 }
 
+.wholeKeyQuote {
+   margin-left: var(--spacer);
+   margin-right: var(--spacer);
+}
+
+.wholeKeyBackspace {
+   width: var(--backspace-width);
+   margin-left: var(--spacer);
+}
+
+.wholeKeyUppercase {
+   width: calc(var(--key-width) + var(--spacer));
+}
+
+.wholeKeyQuestion {
+   margin-right: var(--spacer);
+}
+
 .wholeKeySpacebar {
    width: var(--space-width);
 }
 
 .letter {
    z-index: 1;
+   font-size: 1.35rem;
+   color: var(--letter-color);
+   margin-top: 5px;
 }
 
 .shownKey {
    pointer-events: none;
    position: absolute;
-   top: 5%;
-   left: 5%;
-   width: 90%;
-   height: 90%;
+   top: 7%;
+   left: 9%;
+   height: 86%;
+   width: 82%;
    display: flex;
    justify-content: center;
    align-items: center;
    border-radius: 6px;
    box-sizing: border-box;
    border: 1px solid black;
-   font-size: 1.8rem;
-   color: black;
+}
+
+.shownKeyBackspace {
+   top: 20%;
+   left: 0%;
+   height: 60%;
+   width: 100%;
+   border-radius: 10px;
+   font-family: LeagueMonoVariable;
+   font-size: 1.6rem;
 }
 
 .toLeftTop {

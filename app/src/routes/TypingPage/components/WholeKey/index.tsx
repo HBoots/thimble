@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './style.module.css';
 import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
-import { MedallionEnum } from '../../../../constants/userChoices';
 
 const MiniBox: React.FC<MiniBoxProps> = ({
    bullseyeCounter,
@@ -136,6 +135,10 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
       <div
          className={classNames(styles.wholeKey, {
             [styles.wholeKeySpacebar]: letter === ' ',
+            [styles.wholeKeyQuote]: letter === "'",
+            [styles.wholeKeyBackspace]: letter === 'X',
+            [styles.wholeKeyQuestion]: letter === '?',
+            [styles.wholeKeyUppercase]: letter === '^',
          })}
          onClick={() => {
             setKeyCounter(keyCounter + 1);
@@ -160,6 +163,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
          <div
             className={classNames(
                styles.shownKey,
+               { [styles.shownKeyBackspace]: letter === 'X' },
                styles[directions[mostPressedMiniBox]],
                { [styles.noGradient]: mostPresses === 0 },
             )}

@@ -25,8 +25,8 @@ export const KeyboardDisplay: React.FC<{
 }) => {
    const lettersTop = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
    const lettersMiddle = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
-   const lettersBottom = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
-   const spaceRow = [',', ' ', '.'];
+   const lettersBottom = ["'", 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'X'];
+   const spaceRow = ['^', ',', ' ', '.', '?'];
 
    return (
       <>
