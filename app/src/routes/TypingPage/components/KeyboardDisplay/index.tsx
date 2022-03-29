@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
-import { Medallion } from '../../../../models/UserSettings';
-import { WholeKey } from '../WholeKey';
 
+import { WholeKey } from '../WholeKey';
+import { KeyboardDisplayProps } from '../../../../models/KeyboardDisplay';
 import styles from './style.module.css';
 
-export const KeyboardDisplay: React.FC<{
-   bullseyeCounter: number;
-   setBullseyeCounter: React.Dispatch<React.SetStateAction<number>>;
-   keyboardCounter: number;
-   setKeyboardCounter: React.Dispatch<React.SetStateAction<number>>;
-   typedSentence: string;
-   setTypedSentence: React.Dispatch<React.SetStateAction<string>>;
-   isEasy: boolean;
-   medallion: Medallion;
-}> = ({
+export const KeyboardDisplay: React.FC<KeyboardDisplayProps> = ({
    bullseyeCounter,
    setBullseyeCounter,
    keyboardCounter,
