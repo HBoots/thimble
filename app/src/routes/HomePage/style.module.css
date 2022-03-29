@@ -6,10 +6,9 @@
 .homePage {
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
    height: 100%;
-   padding: 0 22px;
+   padding: 32vh 6.1%;
 }
 
 .welcome {
@@ -24,7 +23,6 @@
    display: flex;
    justify-content: space-between;
    width: 100%;
-   font-size: 1.3rem;
    text-align: center;
 }
 
@@ -32,7 +30,7 @@
    display: block;
    text-decoration: none;
    background-color: var(--nav-purple);
-   padding: 8px 32px;
+   padding: 8px 10.2%;
    color: var(--home-link-text);
    font-size: 1.2rem;
    font-weight: bold;
