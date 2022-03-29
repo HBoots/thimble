@@ -138,8 +138,10 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
                // setKeyCounter(keyCounter + 1);
                setKeyboardCounter(keyboardCounter + 1);
                setTypedSentence(buildSentence());
+               setIsUpperCase(false);
             } else if (letter === '<<') {
                setTypedSentence(typedSentence.slice(0, -1));
+               setIsUpperCase(false);
             } else if (letter === '^') {
                setIsUpperCase(!isUpperCase);
             }
