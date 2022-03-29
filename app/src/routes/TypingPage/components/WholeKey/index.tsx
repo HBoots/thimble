@@ -168,6 +168,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
             className={classNames(
                styles.shownKey,
                { [styles.shownKeyBackspace]: letter === 'X' },
+               { [styles.shownKeyUppercase]: letter === '^' },
                styles[directions[mostPressedMiniBox]],
                { [styles.noGradient]: mostPresses === 0 },
             )}
