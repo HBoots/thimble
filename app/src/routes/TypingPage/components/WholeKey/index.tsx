@@ -136,19 +136,21 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
          className={classNames(styles.wholeKey, {
             [styles.wholeKeySpacebar]: letter === ' ',
             [styles.wholeKeyQuote]: letter === "'",
-            [styles.wholeKeyBackspace]: letter === 'X',
+            [styles.wholeKeyBackspace]: letter === '<<',
             [styles.wholeKeyQuestion]: letter === '?',
             [styles.wholeKeyUppercase]: letter === '^',
          })}
          onClick={() => {
-            if (!['X', '^'].includes(letter)) {
+            if (!['<<', '^'].includes(letter)) {
                // setKeyCounter(keyCounter + 1);
                setKeyboardCounter(keyboardCounter + 1);
                setTypedSentence(buildSentence());
+            } else if (letter === '<<') {
+               setTypedSentence(typedSentence.slice(0, -1));
             }
          }}
       >
-         {!['X', '^'].includes(letter) &&
+         {!['<<', '^'].includes(letter) &&
             miniBoxIds.map((miniBoxId) => (
                <MiniBox
                   key={miniBoxId}
@@ -167,7 +169,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
          <div
             className={classNames(
                styles.shownKey,
-               { [styles.shownKeyBackspace]: letter === 'X' },
+               { [styles.shownKeyBackspace]: letter === '<<' },
                { [styles.shownKeyUppercase]: letter === '^' },
                styles[directions[mostPressedMiniBox]],
                { [styles.noGradient]: mostPresses === 0 },

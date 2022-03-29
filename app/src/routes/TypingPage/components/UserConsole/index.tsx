@@ -61,7 +61,9 @@ const UserSentence: React.FC<{ typedSentence: string }> = ({
    return (
       <div className={styles.userSentence}>
          <div className={styles.central}>
-            <div className={styles.farLeft}>{typedSentence}</div>
+            <div className={styles.farLeft}>
+               <pre>{typedSentence}</pre>
+            </div>
          </div>
       </div>
    );
