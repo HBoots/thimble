@@ -23,4 +23,6 @@ export interface WholeKeyProps {
    setTypedSentence: React.Dispatch<React.SetStateAction<string>>;
    isEasy: boolean;
    medallion: Medallion;
+   isUpperCase: boolean;
+   setIsUpperCase: React.Dispatch<React.SetStateAction<boolean>>;
 }

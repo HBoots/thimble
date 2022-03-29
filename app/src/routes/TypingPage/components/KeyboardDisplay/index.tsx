@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Medallion } from '../../../../models/UserSettings';
 import { WholeKey } from '../WholeKey';
 
@@ -27,6 +27,7 @@ export const KeyboardDisplay: React.FC<{
    const lettersMiddle = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
    const lettersBottom = ["'", 'z', 'x', 'c', 'v', 'b', 'n', 'm', '<<'];
    const spaceRow = ['^', ',', ' ', '.', '?'];
+   const [isUpperCase, setIsUpperCase] = useState(false);
 
    return (
       <>
@@ -47,6 +48,8 @@ export const KeyboardDisplay: React.FC<{
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
                      medallion={medallion}
+                     isUpperCase={isUpperCase}
+                     setIsUpperCase={setIsUpperCase}
                   />
                ))}
             </div>
@@ -63,6 +66,8 @@ export const KeyboardDisplay: React.FC<{
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
                      medallion={medallion}
+                     isUpperCase={isUpperCase}
+                     setIsUpperCase={setIsUpperCase}
                   />
                ))}
             </div>
@@ -79,6 +84,8 @@ export const KeyboardDisplay: React.FC<{
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
                      medallion={medallion}
+                     isUpperCase={isUpperCase}
+                     setIsUpperCase={setIsUpperCase}
                   />
                ))}
             </div>
@@ -95,6 +102,8 @@ export const KeyboardDisplay: React.FC<{
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
                      medallion={medallion}
+                     isUpperCase={isUpperCase}
+                     setIsUpperCase={setIsUpperCase}
                   />
                ))}
             </div>

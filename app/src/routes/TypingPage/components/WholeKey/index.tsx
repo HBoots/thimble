@@ -101,6 +101,8 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
    setTypedSentence,
    isEasy,
    medallion,
+   isUpperCase,
+   setIsUpperCase,
 }) => {
    const maxSentenceLength = 100;
    const miniBoxIds = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -128,7 +130,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
       if (localSentence.length >= maxSentenceLength) {
          localSentence = localSentence.substring(1);
       }
-      return localSentence + letter;
+      return localSentence + `${isUpperCase ? letter.toUpperCase() : letter}`;
    };
 
    return (
@@ -147,6 +149,8 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
                setTypedSentence(buildSentence());
             } else if (letter === '<<') {
                setTypedSentence(typedSentence.slice(0, -1));
+            } else if (letter === '^') {
+               setIsUpperCase(!isUpperCase);
             }
          }}
       >
@@ -175,7 +179,9 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
                { [styles.noGradient]: mostPresses === 0 },
             )}
          >
-            <div className={styles.letter}>{letter}</div>
+            <div className={styles.letter}>
+               {isUpperCase ? letter.toUpperCase() : letter}
+            </div>
          </div>
       </div>
    );
