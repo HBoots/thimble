@@ -9,6 +9,7 @@
    justify-content: center;
    align-items: center;
    height: 100%;
+   padding: 0 22px;
 }
 
 .welcome {
@@ -16,15 +17,23 @@
    margin-bottom: 18px;
    font-weight: bold;
    font-size: 1.7rem;
+   text-align: center;
 }
 
-.navButton {
-   background-color: var(--nav-purple);
-   padding: 10px;
-   font-size: 1.5rem;
+.navSection {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   font-size: 1.3rem;
+   text-align: center;
 }
 
 .linkInHome {
+   display: block;
    text-decoration: none;
+   background-color: var(--nav-purple);
+   padding: 8px 25px;
    color: var(--home-link-text);
+   font-size: 1.2rem;
+   font-weight: bold;
 }
