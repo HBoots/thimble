@@ -8,8 +8,7 @@ import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
 const MiniBox: React.FC<MiniBoxProps> = ({
    bullseyeCounter,
    setBullseyeCounter,
-   letter,
-   keyCounter,
+   // keyCounter,
    keyboardCounter,
    miniBoxId,
    gradientRecord,
@@ -97,6 +96,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
    setBullseyeCounter,
    letter,
    keyboardCounter,
+   setKeyboardCounter,
    typedSentence,
    setTypedSentence,
    isEasy,
@@ -104,7 +104,7 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
 }) => {
    const maxSentenceLength = 100;
    const miniBoxIds = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-   const [keyCounter, setKeyCounter] = useState(0);
+   // const [keyCounter, setKeyCounter] = useState(0);
    const [gradientRecord, setGradientRecord] = useState([
       0, 0, 0, 0, 0, 0, 0, 0, 0,
    ]);
@@ -141,25 +141,29 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
             [styles.wholeKeyUppercase]: letter === '^',
          })}
          onClick={() => {
-            setKeyCounter(keyCounter + 1);
-            setTypedSentence(buildSentence());
+            if (!['X', '^'].includes(letter)) {
+               // setKeyCounter(keyCounter + 1);
+               setKeyboardCounter(keyboardCounter + 1);
+               setTypedSentence(buildSentence());
+            }
          }}
       >
-         {miniBoxIds.map((miniBoxId) => (
-            <MiniBox
-               key={miniBoxId}
-               bullseyeCounter={bullseyeCounter}
-               setBullseyeCounter={setBullseyeCounter}
-               miniBoxId={miniBoxId}
-               letter={letter}
-               keyCounter={keyCounter}
-               keyboardCounter={keyboardCounter}
-               gradientRecord={gradientRecord}
-               setGradientRecord={setGradientRecord}
-               isEasy={isEasy}
-               medallion={medallion}
-            />
-         ))}
+         {!['X', '^'].includes(letter) &&
+            miniBoxIds.map((miniBoxId) => (
+               <MiniBox
+                  key={miniBoxId}
+                  bullseyeCounter={bullseyeCounter}
+                  setBullseyeCounter={setBullseyeCounter}
+                  miniBoxId={miniBoxId}
+                  letter={letter}
+                  // keyCounter={keyCounter}
+                  keyboardCounter={keyboardCounter}
+                  gradientRecord={gradientRecord}
+                  setGradientRecord={setGradientRecord}
+                  isEasy={isEasy}
+                  medallion={medallion}
+               />
+            ))}
          <div
             className={classNames(
                styles.shownKey,

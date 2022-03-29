@@ -32,7 +32,7 @@ export const KeyboardDisplay: React.FC<{
       <>
          <div
             className={styles.keyboardDisplay}
-            onClick={() => setKeyboardCounter(keyboardCounter + 1)}
+            // onClick={() => setKeyboardCounter(keyboardCounter + 1)}
          >
             <div className={styles.keyboardRow}>
                {lettersTop.map((letter) => (
@@ -40,6 +40,7 @@ export const KeyboardDisplay: React.FC<{
                      key={letter}
                      letter={letter}
                      keyboardCounter={keyboardCounter}
+                     setKeyboardCounter={setKeyboardCounter}
                      bullseyeCounter={bullseyeCounter}
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
@@ -55,6 +56,7 @@ export const KeyboardDisplay: React.FC<{
                      key={letter}
                      letter={letter}
                      keyboardCounter={keyboardCounter}
+                     setKeyboardCounter={setKeyboardCounter}
                      bullseyeCounter={bullseyeCounter}
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
@@ -70,6 +72,7 @@ export const KeyboardDisplay: React.FC<{
                      key={letter}
                      letter={letter}
                      keyboardCounter={keyboardCounter}
+                     setKeyboardCounter={setKeyboardCounter}
                      bullseyeCounter={bullseyeCounter}
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
@@ -85,6 +88,7 @@ export const KeyboardDisplay: React.FC<{
                      key={letter}
                      letter={letter}
                      keyboardCounter={keyboardCounter}
+                     setKeyboardCounter={setKeyboardCounter}
                      bullseyeCounter={bullseyeCounter}
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
