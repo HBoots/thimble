@@ -9,6 +9,9 @@ export const HomePage: React.FC = () => {
          <div className={styles.homePage}>
             <div className={styles.welcome}>Welcome to THIMBLE</div>
             <nav className={styles.navButton}>
+               <Link to="/explanationPage" className={styles.linkInHome}>
+                  What is Thimble?
+               </Link>
                <Link to="/typingPage" className={styles.linkInHome}>
                   start training
                </Link>
