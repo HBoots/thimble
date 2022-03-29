@@ -175,8 +175,14 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
                styles.shownKey,
                { [styles.shownKeyBackspace]: letter === '<<' },
                { [styles.shownKeyUppercase]: letter === '^' },
-               styles[directions[mostPressedMiniBox]],
-               { [styles.noGradient]: mostPresses === 0 },
+               { [styles.highlight]: letter === '^' && isUpperCase },
+               {
+                  [styles[directions[mostPressedMiniBox]]]:
+                     letter !== '<<' && letter !== '^',
+               },
+               {
+                  [styles.noGradient]: letter !== '^' && mostPresses === 0,
+               },
             )}
          >
             <div className={styles.letter}>

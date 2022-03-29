@@ -113,6 +113,10 @@
    font-size: 2.4rem;
 }
 
+.highlight {
+   background-color: var(--highlight);
+}
+
 .toLeftTop {
    background: linear-gradient(to left top, #e8e8e8, 82%, #888);
 }
