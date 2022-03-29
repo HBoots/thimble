@@ -53,31 +53,18 @@
    width: var(--key-width);
 }
 
-.wholeKeyQuote {
-   margin-left: var(--spacer);
+.wholeKeyUpperCase {
+   width: calc(var(--key-width) + var(--spacer));
    margin-right: var(--spacer);
 }
 
 .wholeKeyBackspace {
-   width: var(--backspace-width);
+   width: calc(var(--key-width) + var(--spacer));
    margin-left: var(--spacer);
 }
 
-.wholeKeyUppercase {
-   width: calc(var(--key-width) + var(--spacer));
-}
-
-.wholeKeyQuestion {
-   margin-right: var(--spacer);
-}
-
 .wholeKeySpacebar {
-   width: var(--space-width);
-}
-
-.letter {
-   z-index: 1;
-   margin-top: 5px;
+   width: calc(var(--key-width) * 5);
 }
 
 .shownKey {
@@ -97,6 +84,16 @@
    color: var(--letter-color);
 }
 
+.shownKeyUpperCase {
+   font-family: LeagueMonoVariable;
+   font-size: 2.4rem;
+   background-color: var(--dark-gray);
+}
+
+.highlight {
+   background-color: var(--highlight);
+}
+
 .shownKeyBackspace {
    top: 20%;
    left: 0%;
@@ -106,15 +103,21 @@
    font-family: LeagueMonoVariable;
    font-size: 1.4rem;
    padding-bottom: 6px;
+   background-color: var(--dark-gray);
 }
 
-.shownKeyUppercase {
-   font-family: LeagueMonoVariable;
-   font-size: 2.4rem;
+.shownKeySpacebar {
+   left: 6%;
+   width: 88%;
 }
 
-.highlight {
-   background-color: var(--highlight);
+.letter {
+   z-index: 1;
+   margin-top: 5px;
+}
+
+.letterUpperCase {
+   margin-top: 10px;
 }
 
 .toLeftTop {

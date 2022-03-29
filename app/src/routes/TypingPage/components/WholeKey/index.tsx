@@ -127,11 +127,9 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
    return (
       <div
          className={classNames(styles.wholeKey, {
-            [styles.wholeKeySpacebar]: letter === ' ',
-            [styles.wholeKeyQuote]: letter === "'",
+            [styles.wholeKeyUpperCase]: letter === '^',
             [styles.wholeKeyBackspace]: letter === '<<',
-            [styles.wholeKeyQuestion]: letter === '?',
-            [styles.wholeKeyUppercase]: letter === '^',
+            [styles.wholeKeySpacebar]: letter === ' ',
          })}
          onClick={() => {
             if (!['<<', '^'].includes(letter)) {
@@ -167,9 +165,10 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
             className={classNames(
                styles.shownKey,
                {
-                  [styles.shownKeyBackspace]: letter === '<<',
-                  [styles.shownKeyUppercase]: letter === '^',
+                  [styles.shownKeyUpperCase]: letter === '^',
                   [styles.highlight]: letter === '^' && isUpperCase,
+                  [styles.shownKeyBackspace]: letter === '<<',
+                  [styles.shownKeySpacebar]: letter === ' ',
                },
                {
                   [styles[directions[mostPressedMiniBox]]]:
@@ -179,7 +178,11 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
                },
             )}
          >
-            <div className={styles.letter}>
+            <div
+               className={classNames(styles.letter, {
+                  [styles.letterUpperCase]: letter === '^',
+               })}
+            >
                {isUpperCase ? letter.toUpperCase() : letter}
             </div>
          </div>

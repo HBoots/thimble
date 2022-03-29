@@ -19,14 +19,13 @@ code {
    --home-welcome-text: #301d43;
    --home-link-text: #301d43;
    --shadow-gray: #e8e8e8;
+   --dark-gray: #c8c8c8;
    --letter-color: #222;
    --highlight: #ecddc7;
 
    /* need space for 10 keys, so each is slightly less than 10% view-width */
    --spacer: 3vw;
    --key-width: 9.5vw;
-   --space-width: 47vw;
-   --backspace-width: calc(var(--key-width) + var(--spacer));
 
    --easy-central: 50%;
    --easy-peripheral: calc((100% - var(--easy-central)) / 2);
