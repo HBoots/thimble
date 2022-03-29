@@ -27,7 +27,7 @@ code {
    --spacer: 3vw;
    --key-width: 9.5vw;
 
-   --easy-central: 50%;
+   --easy-central: 70%;
    --easy-peripheral: calc((100% - var(--easy-central)) / 2);
    --hard-central: 33%;
    --hard-peripheral: calc((100% - var(--hard-central)) / 2);
