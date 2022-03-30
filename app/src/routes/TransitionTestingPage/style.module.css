@@ -2,31 +2,119 @@
    padding: 20px;
 }
 
-/**/
-/**/
-/*    TRANSITION WITHOUT TRANSFORM    */
-.stretchBox {
+/*                                       */
+/*                                       */
+/*    TRANSITION  (WITHOUT transform)    */
+.stretch {
+   margin-bottom: 40px;
    border: 2px solid black;
    background-color: yellow;
    color: black;
    width: 200px;
-   transition: color 1s linear, width 2s ease-in-out 2s;
+   transition: color 1s linear, width 2s ease-in-out 1s;
 }
 
-.stretchBox:hover {
+.stretch:hover {
    background-color: pink;
    color: red;
    width: 400px;
 }
 
-/**/
-/**/
-/*    TRANSITION WITH TRANSFORM    */
+/*                                       */
+/*                                       */
+/*    TRANSFORM  (WITHOUT transition)    */
 .rotation {
+   margin-bottom: 40px;
    border: 2px solid black;
    width: 200px;
 }
 
 .rotation:hover {
    transform: rotate(90deg);
+}
+
+/*                                          */
+/*                                          */
+/*    BOTH TRANSITION --AND-- TRANSFORM     */
+.scale {
+   margin-bottom: 40px;
+   border: 1px solid purple;
+   padding: 5px;
+   width: 200px;
+   background-color: inherit;
+   transition: transform 2s, background-color 2s linear 2s;
+}
+
+.scale:hover {
+   transform: scale(8);
+   background-color: #222;
+}
+
+/*                                          */
+/*                                          */
+/*    ALTER CHILD BY HOVER ON PARENT        */
+/*    Note the >      Note the symbol " > "   Take note of ">"   */
+.parent {
+   margin-bottom: 40px;
+   border: 1px solid black;
+   width: 100px;
+   height: 100px;
+   background-color: #bbb;
+}
+
+.child {
+   border: 1px solid black;
+   width: 50px;
+   height: 50px;
+   background-color: white;
+   transition: background-color 2.5s;
+}
+
+.parent:hover > .child {
+   background-color: green;
+}
+
+/*                                          */
+/*                                          */
+/*  The "label" hack:  https://www.delftstack.com/howto/css/css-onclick/   */
+#btn {
+   display: none;
+}
+/*  The +  is for adjacent siblings  */
+#btn:checked + label > img {
+   width: 75px;
+   height: 75px;
+}
+
+/*                                          */
+/*                                          */
+/*  "label" hack Try #2 :                   */
+.controlMe::after {
+   content: '😃';
+   font-size: 100px;
+}
+#toggle:checked ~ .controlMe::after {
+   content: '😩';
+}
+
+label {
+   background: #a5d6a7;
+   padding: 0.5rem 1rem;
+   border-radius: 0.5rem;
+}
+
+.visuallyHidden {
+   position: absolute;
+   left: -100vw;
+
+   /* Note, you may want to position the checkbox over top the label and set the opacity to zero instead. It can be better for accessibilty on some touch devices for discoverability. */
+}
+
+body {
+   height: 100vh;
+   margin: 0;
+   display: grid;
+   place-items: center;
+   text-align: center;
+   font: 900 24px/1.4 -system-ui, sans-serif;
 }
