@@ -1,7 +1,8 @@
 import React from 'react';
-import { medallions } from '../../../../constants/userChoices';
-import { Medallion } from '../../../../models/UserSettings';
 
+import { PanelProps, UserConsoleProps } from '../../../../models/UserConsole';
+import { Medallion } from '../../../../models/UserSettings';
+import { medallions } from '../../../../constants/userChoices';
 import styles from './style.module.css';
 
 const Score: React.FC<{ bullseyeCounter: number; keyboardCounter: number }> = ({
@@ -61,22 +62,15 @@ const UserSentence: React.FC<{ typedSentence: string }> = ({
    return (
       <div className={styles.userSentence}>
          <div className={styles.central}>
-            <div className={styles.farLeft}>{typedSentence}</div>
+            <div className={styles.farLeft}>
+               <pre>{typedSentence}</pre>
+            </div>
          </div>
       </div>
    );
 };
 
-const Panel: React.FC<{
-   bullseyeCounter: number;
-   keyboardCounter: number;
-   numResets: number;
-   setNumResets: React.Dispatch<React.SetStateAction<number>>;
-   isEasy: boolean;
-   setIsEasy: React.Dispatch<React.SetStateAction<boolean>>;
-   medallion: Medallion;
-   setMedallion: React.Dispatch<React.SetStateAction<Medallion>>;
-}> = ({
+const Panel: React.FC<PanelProps> = ({
    bullseyeCounter,
    keyboardCounter,
    numResets,
@@ -99,17 +93,7 @@ const Panel: React.FC<{
    );
 };
 
-export const UserConsole: React.FC<{
-   bullseyeCounter: number;
-   keyboardCounter: number;
-   numResets: number;
-   setNumResets: React.Dispatch<React.SetStateAction<number>>;
-   typedSentence: string;
-   isEasy: boolean;
-   setIsEasy: React.Dispatch<React.SetStateAction<boolean>>;
-   medallion: Medallion;
-   setMedallion: React.Dispatch<React.SetStateAction<Medallion>>;
-}> = ({
+export const UserConsole: React.FC<UserConsoleProps> = ({
    bullseyeCounter,
    keyboardCounter,
    numResets,

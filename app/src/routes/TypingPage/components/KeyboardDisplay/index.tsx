@@ -1,19 +1,10 @@
-import React from 'react';
-import { Medallion } from '../../../../models/UserSettings';
-import { WholeKey } from '../WholeKey';
+import React, { useState } from 'react';
 
+import { WholeKey } from '../WholeKey';
+import { KeyboardDisplayProps } from '../../../../models/KeyboardDisplay';
 import styles from './style.module.css';
 
-export const KeyboardDisplay: React.FC<{
-   bullseyeCounter: number;
-   setBullseyeCounter: React.Dispatch<React.SetStateAction<number>>;
-   keyboardCounter: number;
-   setKeyboardCounter: React.Dispatch<React.SetStateAction<number>>;
-   typedSentence: string;
-   setTypedSentence: React.Dispatch<React.SetStateAction<string>>;
-   isEasy: boolean;
-   medallion: Medallion;
-}> = ({
+export const KeyboardDisplay: React.FC<KeyboardDisplayProps> = ({
    bullseyeCounter,
    setBullseyeCounter,
    keyboardCounter,
@@ -25,14 +16,15 @@ export const KeyboardDisplay: React.FC<{
 }) => {
    const lettersTop = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
    const lettersMiddle = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
-   const lettersBottom = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
-   const spaceRow = [',', ' ', '.'];
+   const lettersBottom = ['^', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '<<'];
+   const spaceRow = ["'", ',', ' ', '.', '?'];
+   const [isUpperCase, setIsUpperCase] = useState(false);
 
    return (
       <>
          <div
             className={styles.keyboardDisplay}
-            onClick={() => setKeyboardCounter(keyboardCounter + 1)}
+            // onClick={() => setKeyboardCounter(keyboardCounter + 1)}
          >
             <div className={styles.keyboardRow}>
                {lettersTop.map((letter) => (
@@ -40,12 +32,15 @@ export const KeyboardDisplay: React.FC<{
                      key={letter}
                      letter={letter}
                      keyboardCounter={keyboardCounter}
+                     setKeyboardCounter={setKeyboardCounter}
                      bullseyeCounter={bullseyeCounter}
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
                      medallion={medallion}
+                     isUpperCase={isUpperCase}
+                     setIsUpperCase={setIsUpperCase}
                   />
                ))}
             </div>
@@ -55,12 +50,15 @@ export const KeyboardDisplay: React.FC<{
                      key={letter}
                      letter={letter}
                      keyboardCounter={keyboardCounter}
+                     setKeyboardCounter={setKeyboardCounter}
                      bullseyeCounter={bullseyeCounter}
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
                      medallion={medallion}
+                     isUpperCase={isUpperCase}
+                     setIsUpperCase={setIsUpperCase}
                   />
                ))}
             </div>
@@ -70,12 +68,15 @@ export const KeyboardDisplay: React.FC<{
                      key={letter}
                      letter={letter}
                      keyboardCounter={keyboardCounter}
+                     setKeyboardCounter={setKeyboardCounter}
                      bullseyeCounter={bullseyeCounter}
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
                      medallion={medallion}
+                     isUpperCase={isUpperCase}
+                     setIsUpperCase={setIsUpperCase}
                   />
                ))}
             </div>
@@ -85,12 +86,15 @@ export const KeyboardDisplay: React.FC<{
                      key={letter}
                      letter={letter}
                      keyboardCounter={keyboardCounter}
+                     setKeyboardCounter={setKeyboardCounter}
                      bullseyeCounter={bullseyeCounter}
                      setBullseyeCounter={setBullseyeCounter}
                      typedSentence={typedSentence}
                      setTypedSentence={setTypedSentence}
                      isEasy={isEasy}
                      medallion={medallion}
+                     isUpperCase={isUpperCase}
+                     setIsUpperCase={setIsUpperCase}
                   />
                ))}
             </div>

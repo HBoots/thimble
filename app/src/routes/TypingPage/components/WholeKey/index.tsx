@@ -4,13 +4,11 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './style.module.css';
 import { MiniBoxProps, WholeKeyProps } from '../../../../models/WholeKey';
-import { MedallionEnum } from '../../../../constants/userChoices';
 
 const MiniBox: React.FC<MiniBoxProps> = ({
    bullseyeCounter,
    setBullseyeCounter,
-   letter,
-   keyCounter,
+   // keyCounter,
    keyboardCounter,
    miniBoxId,
    gradientRecord,
@@ -35,22 +33,18 @@ const MiniBox: React.FC<MiniBoxProps> = ({
          // style={{backgroundColor: `#${((miniBoxId + 1) * 3) % 10}${((miniBoxId + 1) * 5) % 10}${((miniBoxId + 1) * 7) % 10}`,}}
          className={classNames(
             styles.miniBox,
-            { [styles.miniBoxEasyCentral]: isEasy },
+            // [brackets] are necessary because this is an object key:
             {
+               [styles.miniBoxEasyCentral]: isEasy,
                [styles.miniBoxEasyPeripheralWidth]:
                   isEasy && peripheralColumnsMinis.includes(miniBoxId),
-            },
-            {
                [styles.miniBoxEasyPeripheralHeight]:
                   isEasy && peripheralRowsMinis.includes(miniBoxId),
             },
-
-            { [styles.miniBoxHardCentral]: !isEasy },
             {
+               [styles.miniBoxHardCentral]: !isEasy,
                [styles.miniBoxHardPeripheralWidth]:
                   !isEasy && peripheralColumnsMinis.includes(miniBoxId),
-            },
-            {
                [styles.miniBoxHardPeripheralHeight]:
                   !isEasy && peripheralRowsMinis.includes(miniBoxId),
             },
@@ -78,15 +72,10 @@ const MiniBox: React.FC<MiniBoxProps> = ({
                         : medallion.images.miss
                   }
                   alt="success medallion icon"
-                  className={classNames(
-                     styles.medallion,
-                     // [brackets] are necessary because this is an object key
-
-                     {
-                        [styles.medallionTrace]:
-                           keyboardCounter - 1 !== keyBoardCounterSnapshot,
-                     },
-                  )}
+                  className={classNames(styles.medallion, {
+                     [styles.medallionTrace]:
+                        keyboardCounter - 1 !== keyBoardCounterSnapshot,
+                  })}
                />
             )}
       </div>
@@ -98,14 +87,17 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
    setBullseyeCounter,
    letter,
    keyboardCounter,
+   setKeyboardCounter,
    typedSentence,
    setTypedSentence,
    isEasy,
    medallion,
+   isUpperCase,
+   setIsUpperCase,
 }) => {
    const maxSentenceLength = 100;
    const miniBoxIds = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-   const [keyCounter, setKeyCounter] = useState(0);
+   // const [keyCounter, setKeyCounter] = useState(0);
    const [gradientRecord, setGradientRecord] = useState([
       0, 0, 0, 0, 0, 0, 0, 0, 0,
    ]);
@@ -129,42 +121,70 @@ export const WholeKey: React.FC<WholeKeyProps> = ({
       if (localSentence.length >= maxSentenceLength) {
          localSentence = localSentence.substring(1);
       }
-      return localSentence + letter;
+      return localSentence + `${isUpperCase ? letter.toUpperCase() : letter}`;
    };
 
    return (
       <div
          className={classNames(styles.wholeKey, {
+            [styles.wholeKeyUpperCase]: letter === '^',
+            [styles.wholeKeyBackspace]: letter === '<<',
             [styles.wholeKeySpacebar]: letter === ' ',
          })}
          onClick={() => {
-            setKeyCounter(keyCounter + 1);
-            setTypedSentence(buildSentence());
+            if (!['<<', '^'].includes(letter)) {
+               // setKeyCounter(keyCounter + 1);
+               setKeyboardCounter(keyboardCounter + 1);
+               setTypedSentence(buildSentence());
+               setIsUpperCase(false);
+            } else if (letter === '<<') {
+               setTypedSentence(typedSentence.slice(0, -1));
+               setIsUpperCase(false);
+            } else if (letter === '^') {
+               setIsUpperCase(!isUpperCase);
+            }
          }}
       >
-         {miniBoxIds.map((miniBoxId) => (
-            <MiniBox
-               key={miniBoxId}
-               bullseyeCounter={bullseyeCounter}
-               setBullseyeCounter={setBullseyeCounter}
-               miniBoxId={miniBoxId}
-               letter={letter}
-               keyCounter={keyCounter}
-               keyboardCounter={keyboardCounter}
-               gradientRecord={gradientRecord}
-               setGradientRecord={setGradientRecord}
-               isEasy={isEasy}
-               medallion={medallion}
-            />
-         ))}
+         {!['<<', '^'].includes(letter) &&
+            miniBoxIds.map((miniBoxId) => (
+               <MiniBox
+                  key={miniBoxId}
+                  bullseyeCounter={bullseyeCounter}
+                  setBullseyeCounter={setBullseyeCounter}
+                  miniBoxId={miniBoxId}
+                  letter={letter}
+                  // keyCounter={keyCounter}
+                  keyboardCounter={keyboardCounter}
+                  gradientRecord={gradientRecord}
+                  setGradientRecord={setGradientRecord}
+                  isEasy={isEasy}
+                  medallion={medallion}
+               />
+            ))}
          <div
             className={classNames(
                styles.shownKey,
-               styles[directions[mostPressedMiniBox]],
-               { [styles.noGradient]: mostPresses === 0 },
+               {
+                  [styles.shownKeyUpperCase]: letter === '^',
+                  [styles.highlight]: letter === '^' && isUpperCase,
+                  [styles.shownKeyBackspace]: letter === '<<',
+                  [styles.shownKeySpacebar]: letter === ' ',
+               },
+               {
+                  [styles[directions[mostPressedMiniBox]]]:
+                     letter !== '<<' && letter !== '^',
+                  [styles.noGradient]:
+                     letter !== '<<' && letter !== '^' && mostPresses === 0,
+               },
             )}
          >
-            <div className={styles.letter}>{letter}</div>
+            <div
+               className={classNames(styles.letter, {
+                  [styles.letterUpperCase]: letter === '^',
+               })}
+            >
+               {isUpperCase ? letter.toUpperCase() : letter}
+            </div>
          </div>
       </div>
    );

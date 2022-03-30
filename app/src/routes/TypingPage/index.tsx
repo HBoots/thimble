@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SampleSection } from './components/SampleSection';
-import { HomeLinkSection } from './components/HomeLinkSection';
+import { HomeLinkSection } from '../../components/HomeLinkSection';
 import { KeyboardAndConsoleLogicWrap } from './components/KeyboardAndConsoleLogicWrap';
 
 import styles from './style.module.css';

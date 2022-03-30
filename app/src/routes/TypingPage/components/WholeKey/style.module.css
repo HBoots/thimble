@@ -53,29 +53,71 @@
    width: var(--key-width);
 }
 
-.wholeKeySpacebar {
-   width: var(--space-width);
+.wholeKeyUpperCase {
+   width: calc(var(--key-width) + var(--spacer));
+   margin-right: var(--spacer);
 }
 
-.letter {
-   z-index: 1;
+.wholeKeyBackspace {
+   width: calc(var(--key-width) + var(--spacer));
+   margin-left: var(--spacer);
+}
+
+.wholeKeySpacebar {
+   width: calc(var(--key-width) * 5);
 }
 
 .shownKey {
    pointer-events: none;
    position: absolute;
-   top: 5%;
-   left: 5%;
-   width: 90%;
-   height: 90%;
+   top: 7%;
+   left: 9%;
+   height: 86%;
+   width: 82%;
    display: flex;
    justify-content: center;
    align-items: center;
    border-radius: 6px;
    box-sizing: border-box;
    border: 1px solid black;
-   font-size: 1.8rem;
-   color: black;
+   font-size: 1.35rem;
+   color: var(--letter-color);
+}
+
+.shownKeyUpperCase {
+   font-family: LeagueMonoVariable;
+   font-size: 2.4rem;
+   background-color: var(--dark-gray);
+}
+
+.highlight {
+   background-color: var(--highlight);
+}
+
+.shownKeyBackspace {
+   top: 20%;
+   left: 0%;
+   height: 60%;
+   width: 100%;
+   border-radius: 10px;
+   font-family: LeagueMonoVariable;
+   font-size: 1.4rem;
+   padding-bottom: 6px;
+   background-color: var(--dark-gray);
+}
+
+.shownKeySpacebar {
+   left: 6%;
+   width: 88%;
+}
+
+.letter {
+   z-index: 1;
+   margin-top: 5px;
+}
+
+.letterUpperCase {
+   margin-top: 10px;
 }
 
 .toLeftTop {
