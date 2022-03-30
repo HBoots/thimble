@@ -8,10 +8,9 @@ export const TransitionTestingPage: React.FC = () => {
       <>
          <HomeLinkSection />
          <div className={styles.transitionTestingPage}>
-            What IS Thimble, anyway?? Thimble is not about typing the correct
-            letter. In fact, Thimble doesn't even know if you've typed the
-            correct letter. But Thimble is very opinionated about WHERE, within
-            the key, your finger touched the screen.
+            <div> TRANSITION TESTING:</div>
+            <div className={styles.stretchBox}>stretch me on hover</div>
+            <div className={styles.rotation}>rotate me on hover</div>
          </div>
       </>
    );
