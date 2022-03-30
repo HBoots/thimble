@@ -9,7 +9,7 @@ export const HomePage: React.FC = () => {
          <div className={styles.homePage}>
             <div className={styles.welcome}>Welcome to THIMBLE</div>
             <nav className={styles.navSection}>
-               <Link to="/explanationPage" className={styles.linkInHome}>
+               <Link to="/transitionTestingPage" className={styles.linkInHome}>
                   What is <br></br> Thimble?
                </Link>
                <Link to="/typingPage" className={styles.linkInHome}>

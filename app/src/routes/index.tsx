@@ -4,7 +4,7 @@ import {
    Route,
    Routes as RouterDomRoutes,
 } from 'react-router-dom';
-import { ExplanationPage } from './ExplanationPage';
+import { TransitionTestingPage } from './TransitionTestingPage';
 import { HomePage } from './HomePage';
 import { TypingPage } from './TypingPage';
 
@@ -14,7 +14,10 @@ export const Routes: React.FC = () => {
          <RouterDomRoutes>
             <Route path="/" element={<HomePage />} />
             <Route path="typingPage" element={<TypingPage />} />
-            <Route path="explanationPage" element={<ExplanationPage />} />
+            <Route
+               path="transitionTestingPage"
+               element={<TransitionTestingPage />}
+            />
          </RouterDomRoutes>
       </BrowserRouter>
    );
